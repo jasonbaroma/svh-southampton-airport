@@ -20,26 +20,26 @@ import {
 } from "lucide-react";
 
 export default function LocationPage() {
-  const locationLinks = buildLocationLinks("{{LOCATION_6_NAME}}");
-  const heroImage = { src: "/images/location6-image1.jpeg", alt: "{{LOCATION6_IMAGE_1_ALT}}" };
-  const supportImage = { src: "/images/location6-image2.jpeg", alt: "{{LOCATION6_IMAGE_2_ALT}}" };
+  const locationLinks = buildLocationLinks("Bishops Waltham");
+  const heroImage = { src: "/images/location6-image1.jpeg", alt: "Medium hire van on a quiet country road near Bishops Waltham" };
+  const supportImage = { src: "/images/location6-image2.jpeg", alt: "Customer planning a route beside a hire vehicle near Bishops Waltham" };
   const faqs = [
-    { question: "{{LOCATION6_FAQ_1_QUESTION}}", answer: "{{LOCATION6_FAQ_1_ANSWER}}" },
-    { question: "{{LOCATION6_FAQ_2_QUESTION}}", answer: "{{LOCATION6_FAQ_2_ANSWER}}" },
-    { question: "{{LOCATION6_FAQ_3_QUESTION}}", answer: "{{LOCATION6_FAQ_3_ANSWER}}" },
-    { question: "{{LOCATION6_FAQ_4_QUESTION}}", answer: "{{LOCATION6_FAQ_4_ANSWER}}" },
-    { question: "{{LOCATION6_FAQ_5_QUESTION}}", answer: "{{LOCATION6_FAQ_5_ANSWER}}" },
+    { question: "Can you deliver a hire vehicle to Bishops Waltham?", answer: "Yes, subject to booking arrangements, we can help with delivery and collection in Bishops Waltham." },
+    { question: "Do you hire to both personal and business customers?", answer: "Yes, we provide self-drive options for private customers and businesses." },
+    { question: "What kind of vehicle can I book in Bishops Waltham?", answer: "We can help with vans, cars, minibuses and trucks depending on the purpose of the hire." },
+    { question: "Can I arrange a longer-term hire?", answer: "Yes, longer rentals may be possible, depending on the vehicle and availability at the time." },
+    { question: "What documents are needed to hire a vehicle?", answer: "A standard licence is usually needed, along with identification and any booking details requested at the time of hire." },
   ];
   const trustCards = [
-    { title: "{{LOCATION6_TRUST_CARD_1_TITLE}}", description: "{{LOCATION6_TRUST_CARD_1_DESCRIPTION}}", icon: ShieldCheck },
-    { title: "{{LOCATION6_TRUST_CARD_2_TITLE}}", description: "{{LOCATION6_TRUST_CARD_2_DESCRIPTION}}", icon: Star },
-    { title: "{{LOCATION6_TRUST_CARD_3_TITLE}}", description: "{{LOCATION6_TRUST_CARD_3_DESCRIPTION}}", icon: Users },
+    { title: "Well-kept hire vehicles", description: "Vehicles are prepared for hire with reliability and day-to-day usability in mind.", icon: ShieldCheck },
+    { title: "Hire that fits the job", description: "From one-off trips to longer bookings, we keep rental arrangements practical and flexible.", icon: Star },
+    { title: "Helpful local support", description: "We support customers with sensible booking guidance and convenient service options.", icon: Users },
   ];
   const featureStats = [
-    { value: "Car Hire", label: "{{LOCATION6_FEATURE_CARD_1_DESCRIPTION}}" },
-    { value: "Van Hire", label: "{{LOCATION6_FEATURE_CARD_2_DESCRIPTION}}" },
-    { value: "Minibus Hire", label: "{{LOCATION6_FEATURE_CARD_3_DESCRIPTION}}" },
-    { value: "Truck Hire", label: "{{LOCATION6_FEATURE_CARD_4_DESCRIPTION}}" },
+    { value: "Car Hire", label: "Van hire for moves, bulky collections, trade tasks and day-to-day transport jobs." },
+    { value: "Van Hire", label: "Car hire for local trips, business travel and temporary replacement use." },
+    { value: "Minibus Hire", label: "Minibus hire for group outings, events and shared journeys across Hampshire." },
+    { value: "Truck Hire", label: "Truck hire for larger loads, heavier equipment and more demanding jobs." },
   ];
   const vehicleCards = [
     { src: "/images/smallvan1.jpg", alt: "Small van hire vehicle", title: "Small Vans" },
@@ -52,9 +52,9 @@ export default function LocationPage() {
     { src: "/images/7.5tonnecurtainsidehire.jpg", alt: "7.5 tonne curtainside truck hire vehicle", title: "Truck Hire" },
   ];
   const benefits = [
-    { icon: BadgePoundSterling, title: "{{LOCATION6_BENEFIT_1_TITLE}}", description: "{{LOCATION6_BENEFIT_1_DESCRIPTION}}", detail: "{{LOCATION6_BENEFIT_1_DETAIL}}" },
-    { icon: Clock3, title: "{{LOCATION6_BENEFIT_2_TITLE}}", description: "{{LOCATION6_BENEFIT_2_DESCRIPTION}}", detail: "{{LOCATION6_BENEFIT_2_DETAIL}}" },
-    { icon: CheckCircle2, title: "{{LOCATION6_BENEFIT_3_TITLE}}", description: "{{LOCATION6_BENEFIT_3_DESCRIPTION}}", detail: "{{LOCATION6_BENEFIT_3_DETAIL}}" },
+    { icon: BadgePoundSterling, title: "Broad vehicle choice", description: "Choose a vehicle that suits the load, trip length and type of travel you actually have planned.", detail: "That helps whether you are moving locally, carrying stock, organising group travel or covering temporary transport needs." },
+    { icon: Clock3, title: "Flexible rental periods", description: "Hire periods can be arranged around short-term jobs, planned projects or longer use.", detail: "It is a practical option for customers who do not want to commit to more time than they need." },
+    { icon: CheckCircle2, title: "Straightforward service", description: "Support with delivery, collection and booking guidance helps keep things manageable.", detail: "That is especially useful when planning around work schedules, moving dates or coordinated collections." },
   ];
 
   return (
@@ -103,8 +103,8 @@ export default function LocationPage() {
           <div className="relative z-10 grid gap-12 lg:grid-cols-[1fr_420px] lg:items-center">
             <div className="max-w-3xl">
               <div className="flex flex-col gap-6">
-                <h1 className="text-5xl font-bold tracking-tight">{"{{LOCATION6_HERO_TITLE}}"}</h1>
-                <p className="text-xl text-white">{"{{LOCATION6_HERO_SUBTITLE}}"}</p>
+                <h1 className="text-5xl font-bold tracking-tight">{"Vehicle Hire in Bishops Waltham"}</h1>
+                <p className="text-xl text-white">{"Self-drive van, car, minibus and truck hire for Bishops Waltham, backed by flexible booking and dependable local support."}</p>
                 <Button size="lg" className="w-fit bg-[#00B395] text-white hover:bg-[#00997f]" asChild>
                   <a href={phoneHref}>Book Now</a>
                 </Button>
@@ -127,18 +127,18 @@ export default function LocationPage() {
               <div className="max-w-2xl">
                 <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#00B395]/25 bg-white px-3 py-1 text-sm font-medium text-[#00B395]">
                   <PhoneCall className="h-4 w-4" />
-                  {"{{LOCATION6_BOOKING_BADGE_TEXT}}"}
+                  {"Easy to arrange hire"}
                 </div>
-                <h2 className="text-2xl font-bold tracking-tight text-slate-950 md:text-3xl">{"{{LOCATION6_BOOKING_SECTION_TITLE}}"}</h2>
-                <p className="mt-3 text-base leading-7 text-slate-600">{"{{LOCATION6_BOOKING_SECTION_DESCRIPTION}}"}</p>
+                <h2 className="text-2xl font-bold tracking-tight text-slate-950 md:text-3xl">{"Book a vehicle for Bishops Waltham with confidence"}</h2>
+                <p className="mt-3 text-base leading-7 text-slate-600">{"Hiring in Bishops Waltham should be simple. We help you book the right vehicle for the job, explain the practical details clearly, and arrange a hire period that suits your plans."}</p>
                 <div className="mt-5 flex flex-wrap gap-3 text-sm text-slate-600">
                   <div className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-sm">
                     <PhoneCall className="h-4 w-4 text-[#00B395]" />
-                    {"{{LOCATION6_BOOKING_FEATURE_1}}"}
+                    {"Maintained self-drive fleet"}
                   </div>
                   <div className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-sm">
                     <Clock3 className="h-4 w-4 text-[#00B395]" />
-                    {"{{LOCATION6_BOOKING_FEATURE_2}}"}
+                    {"Flexible terms available"}
                   </div>
                 </div>
               </div>
@@ -153,8 +153,8 @@ export default function LocationPage() {
       <section id="trust" className="px-6 py-16">
         <div className="mx-auto max-w-6xl">
           <div className="mb-12 text-center">
-            <h2 className="mb-4 text-4xl font-bold">{"{{LOCATION6_TRUST_SECTION_TITLE}}"}</h2>
-            <p className="text-lg text-muted-foreground">{"{{LOCATION6_TRUST_SECTION_DESCRIPTION}}"}</p>
+            <h2 className="mb-4 text-4xl font-bold">{"A practical hire service for Bishops Waltham"}</h2>
+            <p className="text-lg text-muted-foreground">{"Bishops Waltham customers usually want a straightforward service, suitable vehicles and booking terms that reflect real transport needs. That is the kind of service we focus on."}</p>
           </div>
           <div className="grid gap-8 md:grid-cols-3 md:auto-rows-fr">
             {trustCards.map((item) => (
@@ -173,9 +173,9 @@ export default function LocationPage() {
       <section className="bg-white px-6 py-20 text-slate-950">
         <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div>
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"{{LOCATION6_FEATURE_SECTION_KICKER}}"}</p>
-            <h2 className="max-w-2xl text-4xl font-bold tracking-tight md:text-5xl">{"{{LOCATION6_FEATURE_SECTION_TITLE}}"}</h2>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">{"{{LOCATION6_FEATURE_SECTION_DESCRIPTION}}"}</p>
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"What you can hire"}</p>
+            <h2 className="max-w-2xl text-4xl font-bold tracking-tight md:text-5xl">{"A full vehicle range for Bishops Waltham customers"}</h2>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">{"We offer a practical spread of vehicle types for customers in and around Bishops Waltham, whether the hire is personal, commercial or event-related."}</p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Button size="lg" className="bg-[#00B395] text-white hover:bg-[#00997f]" asChild>
                 <a href={phoneHref}>No Hassle Booking {phoneDisplay}</a>
@@ -195,13 +195,13 @@ export default function LocationPage() {
 
       <section className="bg-white px-6 py-20">
         <div className="mx-auto max-w-5xl text-center">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"{{LOCATION6_CONTENT_SECTION_KICKER}}"}</p>
-          <h2 className="mx-auto max-w-3xl text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"{{LOCATION6_CONTENT_SECTION_TITLE}}"}</h2>
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Local hire support"}</p>
+          <h2 className="mx-auto max-w-3xl text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Vehicle hire that suits Bishops Waltham travel"}</h2>
           <div className="mx-auto mt-8 max-w-3xl space-y-6 text-lg leading-8 text-slate-600">
-            <p>{"{{LOCATION6_CONTENT_SECTION_PARAGRAPH_1}}"}</p>
-            <p>{"{{LOCATION6_CONTENT_SECTION_PARAGRAPH_2}}"}</p>
-            <p>{"{{LOCATION6_CONTENT_SECTION_PARAGRAPH_3}}"}</p>
-            <p>{"{{LOCATION6_CONTENT_SECTION_PARAGRAPH_4}}"}</p>
+            <p>{"Bishops Waltham is well placed for travel across Hampshire, which means customers often need vehicles for a wide mix of jobs. Some are moving home, some are collecting furniture or materials, and others need reliable transport for business use."}</p>
+            <p>{"Southern Van Hire offers vans, cars, minibuses and trucks so you can match the booking to the journey rather than compromise with whatever happens to be available elsewhere."}</p>
+            <p>{"We focus on practical service. That means maintained vehicles, flexible rental options and support that keeps the booking process clear from the start."}</p>
+            <p>{"For Bishops Waltham customers, that creates a useful local option for rural collections, town-based jobs, motorway-connected trips and wider transport needs across the South."}</p>
           </div>
         </div>
       </section>
@@ -210,9 +210,9 @@ export default function LocationPage() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(0,179,149,0.14),_transparent_55%)] pointer-events-none" />
         <div className="mx-auto max-w-6xl">
           <div className="mx-auto mb-14 max-w-3xl text-center">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"{{LOCATION6_BENEFITS_SECTION_KICKER}}"}</p>
-            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"{{LOCATION6_BENEFITS_SECTION_TITLE}}"}</h2>
-            <p className="mt-5 text-lg leading-8 text-slate-600">{"{{LOCATION6_BENEFITS_SECTION_DESCRIPTION}}"}</p>
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Why it works"}</p>
+            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Useful advantages for Bishops Waltham bookings"}</h2>
+            <p className="mt-5 text-lg leading-8 text-slate-600">{"Three practical reasons many customers choose to hire through Southern Van Hire in Bishops Waltham."}</p>
           </div>
           <div className="grid gap-8 md:grid-cols-3">
             {benefits.map((item) => (
@@ -254,8 +254,8 @@ export default function LocationPage() {
         <div className="mx-auto max-w-5xl">
           <div className="mx-auto max-w-3xl text-center">
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Nearby Locations"}</p>
-            <h2 className="text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">{"{{LOCATION6_NEARBY_LOCATIONS_SECTION_TITLE}}"}</h2>
-            <p className="mt-4 text-lg leading-8 text-slate-600">{"{{LOCATION6_NEARBY_LOCATIONS_SECTION_INTRO}}"}</p>
+            <h2 className="text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">{"Nearby places we cover from Bishops Waltham"}</h2>
+            <p className="mt-4 text-lg leading-8 text-slate-600">{"We also serve surrounding Hampshire locations, which can be useful if you are comparing pickup points around the Bishops Waltham area."}</p>
           </div>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             {locationLinks.map((location) => (
@@ -266,16 +266,16 @@ export default function LocationPage() {
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
-              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"{{LOCATION6_INFO_CONTENT_BLOCK_1_TITLE}}"}</h3>
-              <p className="mt-3 text-base leading-7 text-slate-600">{"{{LOCATION6_INFO_CONTENT_BLOCK_1_BODY}}"}</p>
+              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"Options for small and large transport needs"}</h3>
+              <p className="mt-3 text-base leading-7 text-slate-600">{"Whether you need a compact car, a roomy van, a group vehicle or a larger truck, we help match the hire vehicle to the task."}</p>
             </div>
             <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
-              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"{{LOCATION6_INFO_CONTENT_BLOCK_2_TITLE}}"}</h3>
-              <p className="mt-3 text-base leading-7 text-slate-600">{"{{LOCATION6_INFO_CONTENT_BLOCK_2_BODY}}"}</p>
+              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"Suitable for personal and commercial use"}</h3>
+              <p className="mt-3 text-base leading-7 text-slate-600">{"A hire vehicle can be arranged for home use, business support, event travel or temporary transport cover."}</p>
             </div>
             <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
-              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"{{LOCATION6_INFO_CONTENT_BLOCK_3_TITLE}}"}</h3>
-              <p className="mt-3 text-base leading-7 text-slate-600">{"{{LOCATION6_INFO_CONTENT_BLOCK_3_BODY}}"}</p>
+              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"Clear booking from the outset"}</h3>
+              <p className="mt-3 text-base leading-7 text-slate-600">{"We aim to make the process clear, from choosing the vehicle to arranging collection or delivery."}</p>
             </div>
           </div>
         </div>
@@ -285,14 +285,14 @@ export default function LocationPage() {
         <div className="mx-auto max-w-5xl">
           <div className="mx-auto max-w-3xl text-center">
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Local Guide"}</p>
-            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"{{LOCATION6_LOCAL_GUIDE_SECTION_TITLE}}"}</h2>
-            <p className="mt-5 text-lg leading-8 text-slate-600">{"{{LOCATION6_LOCAL_GUIDE_SECTION_DESCRIPTION}}"}</p>
+            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Driving and hire tips for Bishops Waltham"}</h2>
+            <p className="mt-5 text-lg leading-8 text-slate-600">{"Useful local driving notes for hiring a vehicle in and around Bishops Waltham, with practical tips for routes, loading and onward travel."}</p>
           </div>
           <div className="mx-auto mt-12 max-w-4xl space-y-6 text-left">
-            <p className="text-base leading-8 text-slate-600">{"{{LOCATION6_LOCAL_GUIDE_PARAGRAPH_1}}"}</p>
-            <p className="text-base leading-8 text-slate-600">{"{{LOCATION6_LOCAL_GUIDE_PARAGRAPH_2}}"}</p>
-            <p className="text-base leading-8 text-slate-600">{"{{LOCATION6_LOCAL_GUIDE_PARAGRAPH_3}}"}</p>
-            <p className="text-base leading-8 text-slate-600">{"{{LOCATION6_LOCAL_GUIDE_PARAGRAPH_4}}"}</p>
+            <p className="text-base leading-8 text-slate-600">{"Bishops Waltham works well as a starting point for local and regional vehicle hire because you can get out quickly onto the surrounding Hampshire route network without dealing with the heavier traffic of the city centre. If you are collecting a van, car, minibus or truck for a move, delivery run or family trip, it helps to plan your loading time around the quieter parts of the day through the town centre roads."}</p>
+            <p className="text-base leading-8 text-slate-600">{"For home moves and furniture collection, many drivers use a hire vehicle here for straightforward trips between village properties, newer housing areas and nearby storage or retail destinations in the wider Southampton area. Roads in and around Bishops Waltham can narrow in places, so choosing the right size vehicle matters, especially if you are parking near homes or loading from smaller drives."}</p>
+            <p className="text-base leading-8 text-slate-600">{"If you are travelling further afield, Bishops Waltham gives you a practical base for heading towards Southampton, Winchester and the rest of South Hampshire. That makes it useful for business users needing a temporary vehicle, trades needing extra carrying space, or groups arranging self-drive transport for events, weekend travel or airport-linked journeys."}</p>
+            <p className="text-base leading-8 text-slate-600">{"Before setting off, it is worth checking your route, allowing for school traffic and giving yourself extra time for reversing or turning if you are not used to a larger vehicle. A well-chosen hire vehicle can make local jobs much easier here, whether you need something compact for light transport or more space for larger loads and longer trips."}</p>
           </div>
         </div>
       </section>
@@ -300,9 +300,9 @@ export default function LocationPage() {
       <section className="bg-white px-6 py-20">
         <div className="mx-auto max-w-4xl">
           <div className="mb-12 text-center">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"{{LOCATION6_FAQ_SECTION_KICKER}}"}</p>
-            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"{{LOCATION6_FAQ_SECTION_TITLE}}"}</h2>
-            <p className="mt-4 text-lg leading-8 text-slate-600">{"{{LOCATION6_FAQ_SECTION_DESCRIPTION}}"}</p>
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Helpful answers"}</p>
+            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Bishops Waltham vehicle hire FAQs"}</h2>
+            <p className="mt-4 text-lg leading-8 text-slate-600">{"Answers to common questions about booking self-drive vehicle hire in Bishops Waltham."}</p>
           </div>
           <div className="rounded-3xl border border-slate-200 bg-slate-50 px-6 shadow-sm">
             {faqs.map((item, index) => (
@@ -320,8 +320,8 @@ export default function LocationPage() {
 
       <section className="bg-[#00B395] px-6 py-16 text-center text-white">
         <div className="mx-auto max-w-2xl">
-          <h2 className="mb-4 text-4xl font-bold">{"{{LOCATION6_CTA_TITLE}}"}</h2>
-          <p className="mb-8 text-lg text-white/85">{"{{LOCATION6_CTA_DESCRIPTION}}"}</p>
+          <h2 className="mb-4 text-4xl font-bold">{"Need vehicle hire in Bishops Waltham?"}</h2>
+          <p className="mb-8 text-lg text-white/85">{"Tell us what you need to move, where you are travelling, and how long you need the vehicle, and we will help you book a suitable hire option."}</p>
           <Button size="lg" className="bg-white text-[#00B395] hover:bg-gray-100" asChild>
             <a href={phoneHref}>Book Now</a>
           </Button>

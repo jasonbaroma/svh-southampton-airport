@@ -20,26 +20,26 @@ import {
 } from "lucide-react";
 
 export default function LocationPage() {
-  const locationLinks = buildLocationLinks("{{LOCATION_1_NAME}}");
-  const heroImage = { src: "/images/location1-image1.jpeg", alt: "{{LOCATION1_IMAGE_1_ALT}}" };
-  const supportImage = { src: "/images/location1-image2.jpeg", alt: "{{LOCATION1_IMAGE_2_ALT}}" };
+  const locationLinks = buildLocationLinks("Eastleigh");
+  const heroImage = { src: "/images/location1-image1.jpeg", alt: "Modern hire van parked on a tidy urban street in Eastleigh" };
+  const supportImage = { src: "/images/location1-image2.jpeg", alt: "Customer beside a hire car in Eastleigh checking directions with keys in hand" };
   const faqs = [
-    { question: "{{LOCATION1_FAQ_1_QUESTION}}", answer: "{{LOCATION1_FAQ_1_ANSWER}}" },
-    { question: "{{LOCATION1_FAQ_2_QUESTION}}", answer: "{{LOCATION1_FAQ_2_ANSWER}}" },
-    { question: "{{LOCATION1_FAQ_3_QUESTION}}", answer: "{{LOCATION1_FAQ_3_ANSWER}}" },
-    { question: "{{LOCATION1_FAQ_4_QUESTION}}", answer: "{{LOCATION1_FAQ_4_ANSWER}}" },
-    { question: "{{LOCATION1_FAQ_5_QUESTION}}", answer: "{{LOCATION1_FAQ_5_ANSWER}}" },
+    { question: "What types of vehicle can I hire in Fair Oak?", answer: "Yes, Fair Oak customers can arrange vans, cars, minibuses and trucks depending on availability and booking needs." },
+    { question: "Can the vehicle be delivered to Fair Oak?", answer: "Yes, delivery and collection can often be arranged to make hiring more convenient." },
+    { question: "What is Fair Oak van hire usually used for?", answer: "Van hire is popular for house moves, furniture collection, tip runs and trade tools or materials." },
+    { question: "Do you offer business hire in Fair Oak?", answer: "Yes, business users can hire for deliveries, temporary cover and project-based transport." },
+    { question: "Can I book a vehicle in Fair Oak for more than a day?", answer: "Yes, we offer flexible hire periods from short bookings to longer arrangements." },
   ];
   const trustCards = [
-    { title: "{{LOCATION1_TRUST_CARD_1_TITLE}}", description: "{{LOCATION1_TRUST_CARD_1_DESCRIPTION}}", icon: ShieldCheck },
-    { title: "{{LOCATION1_TRUST_CARD_2_TITLE}}", description: "{{LOCATION1_TRUST_CARD_2_DESCRIPTION}}", icon: Star },
-    { title: "{{LOCATION1_TRUST_CARD_3_TITLE}}", description: "{{LOCATION1_TRUST_CARD_3_DESCRIPTION}}", icon: Users },
+    { title: "Maintained vehicles", description: "A well-kept fleet ready for practical self-drive use across personal and business bookings.", icon: ShieldCheck },
+    { title: "Straightforward guidance", description: "Helpful support on vehicle choice, hire length and local booking arrangements.", icon: Star },
+    { title: "Designed around convenience", description: "Convenient service features including delivery and collection to help save time.", icon: Users },
   ];
   const featureStats = [
-    { value: "Car Hire", label: "{{LOCATION1_FEATURE_CARD_1_DESCRIPTION}}" },
-    { value: "Van Hire", label: "{{LOCATION1_FEATURE_CARD_2_DESCRIPTION}}" },
-    { value: "Minibus Hire", label: "{{LOCATION1_FEATURE_CARD_3_DESCRIPTION}}" },
-    { value: "Truck Hire", label: "{{LOCATION1_FEATURE_CARD_4_DESCRIPTION}}" },
+    { value: "Car Hire", label: "Vans for moving jobs, local collections, trade work and day-to-day transport tasks." },
+    { value: "Van Hire", label: "Cars for personal travel, airport runs and temporary replacement needs around Fair Oak." },
+    { value: "Minibus Hire", label: "Minibuses for family events, team transport and small group journeys." },
+    { value: "Truck Hire", label: "Trucks for larger loads, site work and heavier-duty transport requirements." },
   ];
   const vehicleCards = [
     { src: "/images/smallvan1.jpg", alt: "Small van hire vehicle", title: "Small Vans" },
@@ -52,9 +52,9 @@ export default function LocationPage() {
     { src: "/images/7.5tonnecurtainsidehire.jpg", alt: "7.5 tonne curtainside truck hire vehicle", title: "Truck Hire" },
   ];
   const benefits = [
-    { icon: BadgePoundSterling, title: "{{LOCATION1_BENEFIT_1_TITLE}}", description: "{{LOCATION1_BENEFIT_1_DESCRIPTION}}", detail: "{{LOCATION1_BENEFIT_1_DETAIL}}" },
-    { icon: Clock3, title: "{{LOCATION1_BENEFIT_2_TITLE}}", description: "{{LOCATION1_BENEFIT_2_DESCRIPTION}}", detail: "{{LOCATION1_BENEFIT_2_DETAIL}}" },
-    { icon: CheckCircle2, title: "{{LOCATION1_BENEFIT_3_TITLE}}", description: "{{LOCATION1_BENEFIT_3_DESCRIPTION}}", detail: "{{LOCATION1_BENEFIT_3_DETAIL}}" },
+    { icon: BadgePoundSterling, title: "Choice that suits the task", description: "Hire the vehicle type that fits your trip, whether you are moving house, collecting stock or arranging transport for a group.", detail: "That helps keep costs sensible and avoids the inconvenience of choosing a vehicle that is too small or unnecessarily large." },
+    { icon: Clock3, title: "Hire terms that fit around you", description: "Flexible rental periods work well for one-day jobs, weekend plans and longer bookings.", detail: "Useful if your timescale changes or you need transport beyond an initial short hire." },
+    { icon: CheckCircle2, title: "Straightforward local service", description: "We focus on maintained vehicles, clear communication and practical delivery and collection support.", detail: "That makes hiring in Fair Oak easier whether you are booking for home or for business." },
   ];
 
   return (
@@ -103,8 +103,8 @@ export default function LocationPage() {
           <div className="relative z-10 grid gap-12 lg:grid-cols-[1fr_420px] lg:items-center">
             <div className="max-w-3xl">
               <div className="flex flex-col gap-6">
-                <h1 className="text-5xl font-bold tracking-tight">{"{{LOCATION1_HERO_TITLE}}"}</h1>
-                <p className="text-xl text-white">{"{{LOCATION1_HERO_SUBTITLE}}"}</p>
+                <h1 className="text-5xl font-bold tracking-tight">{"Eastleigh vehicle hire made simple"}</h1>
+                <p className="text-xl text-white">{"Flexible self-drive van, car, minibus and truck hire for Fair Oak with maintained vehicles and practical local support."}</p>
                 <Button size="lg" className="w-fit bg-[#00B395] text-white hover:bg-[#00997f]" asChild>
                   <a href={phoneHref}>Book Now</a>
                 </Button>
@@ -127,18 +127,18 @@ export default function LocationPage() {
               <div className="max-w-2xl">
                 <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#00B395]/25 bg-white px-3 py-1 text-sm font-medium text-[#00B395]">
                   <PhoneCall className="h-4 w-4" />
-                  {"{{LOCATION1_BOOKING_BADGE_TEXT}}"}
+                  {"Easy booking for Fair Oak"}
                 </div>
-                <h2 className="text-2xl font-bold tracking-tight text-slate-950 md:text-3xl">{"{{LOCATION1_BOOKING_SECTION_TITLE}}"}</h2>
-                <p className="mt-3 text-base leading-7 text-slate-600">{"{{LOCATION1_BOOKING_SECTION_DESCRIPTION}}"}</p>
+                <h2 className="text-2xl font-bold tracking-tight text-slate-950 md:text-3xl">{"Book vehicle hire in Fair Oak without the runaround"}</h2>
+                <p className="mt-3 text-base leading-7 text-slate-600">{"If you need a rental vehicle in Fair Oak, we keep the process clear and practical. Tell us what you need to move, where you are travelling and how long you need the vehicle for, and we will help you arrange a suitable hire."}</p>
                 <div className="mt-5 flex flex-wrap gap-3 text-sm text-slate-600">
                   <div className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-sm">
                     <PhoneCall className="h-4 w-4 text-[#00B395]" />
-                    {"{{LOCATION1_BOOKING_FEATURE_1}}"}
+                    {"Convenient delivery options"}
                   </div>
                   <div className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-sm">
                     <Clock3 className="h-4 w-4 text-[#00B395]" />
-                    {"{{LOCATION1_BOOKING_FEATURE_2}}"}
+                    {"Vans, cars, minibuses and trucks"}
                   </div>
                 </div>
               </div>
@@ -153,8 +153,8 @@ export default function LocationPage() {
       <section id="trust" className="px-6 py-16">
         <div className="mx-auto max-w-6xl">
           <div className="mb-12 text-center">
-            <h2 className="mb-4 text-4xl font-bold">{"{{LOCATION1_TRUST_SECTION_TITLE}}"}</h2>
-            <p className="text-lg text-muted-foreground">{"{{LOCATION1_TRUST_SECTION_DESCRIPTION}}"}</p>
+            <h2 className="mb-4 text-4xl font-bold">{"A dependable hire option for Fair Oak"}</h2>
+            <p className="text-lg text-muted-foreground">{"We aim to make hiring in Fair Oak simple, dependable and suitable for real day-to-day transport needs."}</p>
           </div>
           <div className="grid gap-8 md:grid-cols-3 md:auto-rows-fr">
             {trustCards.map((item) => (
@@ -173,9 +173,9 @@ export default function LocationPage() {
       <section className="bg-white px-6 py-20 text-slate-950">
         <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div>
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"{{LOCATION1_FEATURE_SECTION_KICKER}}"}</p>
-            <h2 className="max-w-2xl text-4xl font-bold tracking-tight md:text-5xl">{"{{LOCATION1_FEATURE_SECTION_TITLE}}"}</h2>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">{"{{LOCATION1_FEATURE_SECTION_DESCRIPTION}}"}</p>
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Available to hire"}</p>
+            <h2 className="max-w-2xl text-4xl font-bold tracking-tight md:text-5xl">{"A full range of hire vehicles for Fair Oak"}</h2>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">{"Fair Oak customers use us for a wide range of self-drive hire needs, from simple local runs to larger transport jobs."}</p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Button size="lg" className="bg-[#00B395] text-white hover:bg-[#00997f]" asChild>
                 <a href={phoneHref}>No Hassle Booking {phoneDisplay}</a>
@@ -195,13 +195,13 @@ export default function LocationPage() {
 
       <section className="bg-white px-6 py-20">
         <div className="mx-auto max-w-5xl text-center">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"{{LOCATION1_CONTENT_SECTION_KICKER}}"}</p>
-          <h2 className="mx-auto max-w-3xl text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"{{LOCATION1_CONTENT_SECTION_TITLE}}"}</h2>
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Local vehicle hire"}</p>
+          <h2 className="mx-auto max-w-3xl text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Vehicle hire in Fair Oak for home, work and everyday transport needs"}</h2>
           <div className="mx-auto mt-8 max-w-3xl space-y-6 text-lg leading-8 text-slate-600">
-            <p>{"{{LOCATION1_CONTENT_SECTION_PARAGRAPH_1}}"}</p>
-            <p>{"{{LOCATION1_CONTENT_SECTION_PARAGRAPH_2}}"}</p>
-            <p>{"{{LOCATION1_CONTENT_SECTION_PARAGRAPH_3}}"}</p>
-            <p>{"{{LOCATION1_CONTENT_SECTION_PARAGRAPH_4}}"}</p>
+            <p>{"Fair Oak is a busy village area with a mix of residential roads, local trade demand and easy links towards Eastleigh, Bishopstoke and Winchester. That makes it a common place for van hire, car hire and temporary business vehicle cover."}</p>
+            <p>{"Customers in Fair Oak often hire for home moves, DIY projects, furniture pickup and short delivery work, especially when a standard car just is not practical enough. We also provide minibuses and trucks for larger transport needs."}</p>
+            <p>{"Because Fair Oak sits close to key routes without feeling heavily industrial, convenience matters. Delivery and collection can save time, particularly if you are trying to manage a move, an event or a work schedule in the same day."}</p>
+            <p>{"Our aim is to provide a dependable self-drive hire service that feels easy to use, with modern, well-maintained vehicles and flexible rental options for local residents and businesses alike."}</p>
           </div>
         </div>
       </section>
@@ -210,9 +210,9 @@ export default function LocationPage() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(0,179,149,0.14),_transparent_55%)] pointer-events-none" />
         <div className="mx-auto max-w-6xl">
           <div className="mx-auto mb-14 max-w-3xl text-center">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"{{LOCATION1_BENEFITS_SECTION_KICKER}}"}</p>
-            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"{{LOCATION1_BENEFITS_SECTION_TITLE}}"}</h2>
-            <p className="mt-5 text-lg leading-8 text-slate-600">{"{{LOCATION1_BENEFITS_SECTION_DESCRIPTION}}"}</p>
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Why Fair Oak customers book"}</p>
+            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Reliable vehicle hire for local journeys and bigger plans"}</h2>
+            <p className="mt-5 text-lg leading-8 text-slate-600">{"A practical hire service for Fair Oak customers who want straightforward booking and a vehicle that suits the job."}</p>
           </div>
           <div className="grid gap-8 md:grid-cols-3">
             {benefits.map((item) => (
@@ -260,8 +260,8 @@ export default function LocationPage() {
         <div className="mx-auto max-w-5xl">
           <div className="mx-auto max-w-3xl text-center">
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Nearby Locations"}</p>
-            <h2 className="text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">{"{{LOCATION1_NEARBY_LOCATIONS_SECTION_TITLE}}"}</h2>
-            <p className="mt-4 text-lg leading-8 text-slate-600">{"{{LOCATION1_NEARBY_LOCATIONS_SECTION_INTRO}}"}</p>
+            <h2 className="text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">{"Other hire areas near Fair Oak"}</h2>
+            <p className="mt-4 text-lg leading-8 text-slate-600">{"If Fair Oak is not the most convenient spot for your booking, we also cover nearby areas that are regularly used for local collections, deliveries and onward travel."}</p>
           </div>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             {locationLinks.map((location) => (
@@ -272,16 +272,16 @@ export default function LocationPage() {
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
-              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"{{LOCATION1_INFO_CONTENT_BLOCK_1_TITLE}}"}</h3>
-              <p className="mt-3 text-base leading-7 text-slate-600">{"{{LOCATION1_INFO_CONTENT_BLOCK_1_BODY}}"}</p>
+              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"Suitable options for different journeys"}</h3>
+              <p className="mt-3 text-base leading-7 text-slate-600">{"Whether you need a compact car, a practical van, a group vehicle or a larger truck, we can help match the hire to the job."}</p>
             </div>
             <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
-              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"{{LOCATION1_INFO_CONTENT_BLOCK_2_TITLE}}"}</h3>
-              <p className="mt-3 text-base leading-7 text-slate-600">{"{{LOCATION1_INFO_CONTENT_BLOCK_2_BODY}}"}</p>
+              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"Prepared for reliable use"}</h3>
+              <p className="mt-3 text-base leading-7 text-slate-600">{"Our vehicles are prepared for dependable everyday use, whether the booking is for personal plans or business transport."}</p>
             </div>
             <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
-              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"{{LOCATION1_INFO_CONTENT_BLOCK_3_TITLE}}"}</h3>
-              <p className="mt-3 text-base leading-7 text-slate-600">{"{{LOCATION1_INFO_CONTENT_BLOCK_3_BODY}}"}</p>
+              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"Useful for common local tasks"}</h3>
+              <p className="mt-3 text-base leading-7 text-slate-600">{"Fair Oak customers often book for moves, collections, events, trade work and short-term cover when extra transport is needed."}</p>
             </div>
           </div>
         </div>
@@ -291,14 +291,14 @@ export default function LocationPage() {
         <div className="mx-auto max-w-5xl">
           <div className="mx-auto max-w-3xl text-center">
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Local Guide"}</p>
-            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"{{LOCATION1_LOCAL_GUIDE_SECTION_TITLE}}"}</h2>
-            <p className="mt-5 text-lg leading-8 text-slate-600">{"{{LOCATION1_LOCAL_GUIDE_SECTION_DESCRIPTION}}"}</p>
+            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Eastleigh driving and stop planning"}</h2>
+            <p className="mt-5 text-lg leading-8 text-slate-600">{"Useful local driving notes for getting the most from your Eastleigh vehicle hire."}</p>
           </div>
           <div className="mx-auto mt-12 max-w-4xl space-y-6 text-left">
-            <p className="text-base leading-8 text-slate-600">{"{{LOCATION1_LOCAL_GUIDE_PARAGRAPH_1}}"}</p>
-            <p className="text-base leading-8 text-slate-600">{"{{LOCATION1_LOCAL_GUIDE_PARAGRAPH_2}}"}</p>
-            <p className="text-base leading-8 text-slate-600">{"{{LOCATION1_LOCAL_GUIDE_PARAGRAPH_3}}"}</p>
-            <p className="text-base leading-8 text-slate-600">{"{{LOCATION1_LOCAL_GUIDE_PARAGRAPH_4}}"}</p>
+            <p className="text-base leading-8 text-slate-600">{"Eastleigh is a practical base for vehicle hire because local journeys can quickly spread in several directions, from town-centre collections and home moves to business runs across the wider Hampshire area. When planning your route, allow a little extra time around the busiest parts of town, especially if you are collecting furniture, making multiple drops, or driving a larger vehicle for the first time."}</p>
+            <p className="text-base leading-8 text-slate-600">{"For straightforward stop planning, Eastleigh Service Station is a useful nearby option for fuel before return, and there are also BP and Esso petrol stations close to the town area. Topping up early usually makes the end of the hire easier, particularly if you have been on a longer day of deliveries, moving house, or travelling out beyond Eastleigh."}</p>
+            <p className="text-base leading-8 text-slate-600">{"If you are using a van, minibus, car or truck for a full day, it helps to think about comfort breaks and vehicle checks as part of the trip. Eastleigh Service Station can work well for a quick reset, while drivers heading further out may find another stop useful later in the journey rather than leaving everything until the return leg."}</p>
+            <p className="text-base leading-8 text-slate-600">{"Many Eastleigh bookings are for practical jobs rather than leisure, so simple route planning matters. Check access at the property, think about where you will load and unload, and choose a vehicle size that suits the streets and parking available. That approach usually makes Eastleigh vehicle hire smoother, quicker and less stressful on the day."}</p>
           </div>
         </div>
       </section>
@@ -306,9 +306,9 @@ export default function LocationPage() {
       <section className="bg-white px-6 py-20">
         <div className="mx-auto max-w-4xl">
           <div className="mb-12 text-center">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"{{LOCATION1_FAQ_SECTION_KICKER}}"}</p>
-            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"{{LOCATION1_FAQ_SECTION_TITLE}}"}</h2>
-            <p className="mt-4 text-lg leading-8 text-slate-600">{"{{LOCATION1_FAQ_SECTION_DESCRIPTION}}"}</p>
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Fair Oak FAQs"}</p>
+            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Helpful information for Fair Oak bookings"}</h2>
+            <p className="mt-4 text-lg leading-8 text-slate-600">{"Answers to common questions about hiring a vehicle in Fair Oak."}</p>
           </div>
           <div className="rounded-3xl border border-slate-200 bg-slate-50 px-6 shadow-sm">
             {faqs.map((item, index) => (
@@ -326,8 +326,8 @@ export default function LocationPage() {
 
       <section className="bg-[#00B395] px-6 py-16 text-center text-white">
         <div className="mx-auto max-w-2xl">
-          <h2 className="mb-4 text-4xl font-bold">{"{{LOCATION1_CTA_TITLE}}"}</h2>
-          <p className="mb-8 text-lg text-white/85">{"{{LOCATION1_CTA_DESCRIPTION}}"}</p>
+          <h2 className="mb-4 text-4xl font-bold">{"Looking for Fair Oak vehicle hire?"}</h2>
+          <p className="mb-8 text-lg text-white/85">{"Speak to us about the kind of vehicle you need in Fair Oak and we will help you arrange a practical, flexible booking."}</p>
           <Button size="lg" className="bg-white text-[#00B395] hover:bg-gray-100" asChild>
             <a href={phoneHref}>Book Now</a>
           </Button>

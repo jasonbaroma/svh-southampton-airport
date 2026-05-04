@@ -20,26 +20,26 @@ import {
 } from "lucide-react";
 
 export default function LocationPage() {
-  const locationLinks = buildLocationLinks("{{LOCATION_4_NAME}}");
-  const heroImage = { src: "/images/location4-image1.jpeg", alt: "{{LOCATION4_IMAGE_1_ALT}}" };
-  const supportImage = { src: "/images/location4-image2.jpeg", alt: "{{LOCATION4_IMAGE_2_ALT}}" };
+  const locationLinks = buildLocationLinks("Hythe");
+  const heroImage = { src: "/images/location4-image1.jpeg", alt: "Panel van parked near a waterside road in Hythe" };
+  const supportImage = { src: "/images/location4-image2.jpeg", alt: "People loading bags into a hire car in a tidy parking area in Hythe" };
   const faqs = [
-    { question: "{{LOCATION4_FAQ_1_QUESTION}}", answer: "{{LOCATION4_FAQ_1_ANSWER}}" },
-    { question: "{{LOCATION4_FAQ_2_QUESTION}}", answer: "{{LOCATION4_FAQ_2_ANSWER}}" },
-    { question: "{{LOCATION4_FAQ_3_QUESTION}}", answer: "{{LOCATION4_FAQ_3_ANSWER}}" },
-    { question: "{{LOCATION4_FAQ_4_QUESTION}}", answer: "{{LOCATION4_FAQ_4_ANSWER}}" },
-    { question: "{{LOCATION4_FAQ_5_QUESTION}}", answer: "{{LOCATION4_FAQ_5_ANSWER}}" },
+    { question: "Can I hire a vehicle for Hamble marina-related trips?", answer: "Yes, many customers book around marina use, events, equipment transport and general local travel." },
+    { question: "What vehicles can I book in Hamble-le-Rice?", answer: "Cars, vans, minibuses and trucks are available, subject to booking details and suitability for the job." },
+    { question: "Do you offer delivery in Hamble-le-Rice?", answer: "Yes, delivery and collection can help if you want the hire arranged more conveniently around the village." },
+    { question: "Is your Hamble-le-Rice service suitable for business users?", answer: "Yes, we support both personal and business hire, including short-term transport needs and longer bookings." },
+    { question: "How do I choose the right hire vehicle?", answer: "It is best to think about passenger numbers, load size, route type and how long you need the vehicle for." },
   ];
   const trustCards = [
-    { title: "{{LOCATION4_TRUST_CARD_1_TITLE}}", description: "{{LOCATION4_TRUST_CARD_1_DESCRIPTION}}", icon: ShieldCheck },
-    { title: "{{LOCATION4_TRUST_CARD_2_TITLE}}", description: "{{LOCATION4_TRUST_CARD_2_DESCRIPTION}}", icon: Star },
-    { title: "{{LOCATION4_TRUST_CARD_3_TITLE}}", description: "{{LOCATION4_TRUST_CARD_3_DESCRIPTION}}", icon: Users },
+    { title: "Service-led support", description: "Vehicle hire backed by practical advice and a focus on what customers actually need.", icon: ShieldCheck },
+    { title: "Reliable vehicle preparation", description: "A maintained fleet helps keep local and longer journeys simple and dependable.", icon: Star },
+    { title: "Broad hire capability", description: "Suitable for domestic bookings, group travel and business use across a range of vehicle types.", icon: Users },
   ];
   const featureStats = [
-    { value: "Car Hire", label: "{{LOCATION4_FEATURE_CARD_1_DESCRIPTION}}" },
-    { value: "Van Hire", label: "{{LOCATION4_FEATURE_CARD_2_DESCRIPTION}}" },
-    { value: "Minibus Hire", label: "{{LOCATION4_FEATURE_CARD_3_DESCRIPTION}}" },
-    { value: "Truck Hire", label: "{{LOCATION4_FEATURE_CARD_4_DESCRIPTION}}" },
+    { value: "Car Hire", label: "Cars for convenient day-to-day driving and business travel." },
+    { value: "Van Hire", label: "Vans for moving items, collecting supplies and handling practical jobs." },
+    { value: "Minibus Hire", label: "Minibuses for group journeys, event transport and shared outings." },
+    { value: "Truck Hire", label: "Trucks for bigger loads that need extra carrying space." },
   ];
   const vehicleCards = [
     { src: "/images/smallvan1.jpg", alt: "Small van hire vehicle", title: "Small Vans" },
@@ -52,9 +52,9 @@ export default function LocationPage() {
     { src: "/images/7.5tonnecurtainsidehire.jpg", alt: "7.5 tonne curtainside truck hire vehicle", title: "Truck Hire" },
   ];
   const benefits = [
-    { icon: BadgePoundSterling, title: "{{LOCATION4_BENEFIT_1_TITLE}}", description: "{{LOCATION4_BENEFIT_1_DESCRIPTION}}", detail: "{{LOCATION4_BENEFIT_1_DETAIL}}" },
-    { icon: Clock3, title: "{{LOCATION4_BENEFIT_2_TITLE}}", description: "{{LOCATION4_BENEFIT_2_DESCRIPTION}}", detail: "{{LOCATION4_BENEFIT_2_DETAIL}}" },
-    { icon: CheckCircle2, title: "{{LOCATION4_BENEFIT_3_TITLE}}", description: "{{LOCATION4_BENEFIT_3_DESCRIPTION}}", detail: "{{LOCATION4_BENEFIT_3_DETAIL}}" },
+    { icon: BadgePoundSterling, title: "Choice that suits the task", description: "A broad fleet makes it easier to book exactly what the journey or job requires.", detail: "Useful whether you need a small car for local travel or more space for cargo, passengers or equipment." },
+    { icon: Clock3, title: "Book around your schedule", description: "Flexible hire periods help with weekend plans, weekday work and longer bookings.", detail: "That can be helpful for marina-related travel, event logistics, temporary business demand or house moves." },
+    { icon: CheckCircle2, title: "Convenient local support", description: "Free delivery and collection keeps things convenient for customers in and around Hamble-le-Rice.", detail: "A useful option when parking is limited or you want to avoid an extra collection trip." },
   ];
 
   return (
@@ -103,8 +103,8 @@ export default function LocationPage() {
           <div className="relative z-10 grid gap-12 lg:grid-cols-[1fr_420px] lg:items-center">
             <div className="max-w-3xl">
               <div className="flex flex-col gap-6">
-                <h1 className="text-5xl font-bold tracking-tight">{"{{LOCATION4_HERO_TITLE}}"}</h1>
-                <p className="text-xl text-white">{"{{LOCATION4_HERO_SUBTITLE}}"}</p>
+                <h1 className="text-5xl font-bold tracking-tight">{"Convenient vehicle hire in Hythe"}</h1>
+                <p className="text-xl text-white">{"Practical self-drive cars, vans, minibuses and trucks for local travel, moving jobs, marina-related trips and business use."}</p>
                 <Button size="lg" className="w-fit bg-[#00B395] text-white hover:bg-[#00997f]" asChild>
                   <a href={phoneHref}>Book Now</a>
                 </Button>
@@ -127,18 +127,18 @@ export default function LocationPage() {
               <div className="max-w-2xl">
                 <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#00B395]/25 bg-white px-3 py-1 text-sm font-medium text-[#00B395]">
                   <PhoneCall className="h-4 w-4" />
-                  {"{{LOCATION4_BOOKING_BADGE_TEXT}}"}
+                  {"Helpful hire, simply arranged"}
                 </div>
-                <h2 className="text-2xl font-bold tracking-tight text-slate-950 md:text-3xl">{"{{LOCATION4_BOOKING_SECTION_TITLE}}"}</h2>
-                <p className="mt-3 text-base leading-7 text-slate-600">{"{{LOCATION4_BOOKING_SECTION_DESCRIPTION}}"}</p>
+                <h2 className="text-2xl font-bold tracking-tight text-slate-950 md:text-3xl">{"Book vehicle hire for Hamble-le-Rice"}</h2>
+                <p className="mt-3 text-base leading-7 text-slate-600">{"If you need a vehicle in Hamble-le-Rice, we keep the process practical. From cars for everyday use to vans, minibuses and trucks for bigger jobs, bookings can be arranged with clear advice and flexible timing."}</p>
                 <div className="mt-5 flex flex-wrap gap-3 text-sm text-slate-600">
                   <div className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-sm">
                     <PhoneCall className="h-4 w-4 text-[#00B395]" />
-                    {"{{LOCATION4_BOOKING_FEATURE_1}}"}
+                    {"Maintained self-drive vehicles"}
                   </div>
                   <div className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-sm">
                     <Clock3 className="h-4 w-4 text-[#00B395]" />
-                    {"{{LOCATION4_BOOKING_FEATURE_2}}"}
+                    {"Support for personal and business hire"}
                   </div>
                 </div>
               </div>
@@ -153,8 +153,8 @@ export default function LocationPage() {
       <section id="trust" className="px-6 py-16">
         <div className="mx-auto max-w-6xl">
           <div className="mb-12 text-center">
-            <h2 className="mb-4 text-4xl font-bold">{"{{LOCATION4_TRUST_SECTION_TITLE}}"}</h2>
-            <p className="text-lg text-muted-foreground">{"{{LOCATION4_TRUST_SECTION_DESCRIPTION}}"}</p>
+            <h2 className="mb-4 text-4xl font-bold">{"Trusted local vehicle hire"}</h2>
+            <p className="text-lg text-muted-foreground">{"Customers booking in Hamble-le-Rice want convenience, flexibility and vehicles that are ready for real-world use. That is what we focus on."}</p>
           </div>
           <div className="grid gap-8 md:grid-cols-3 md:auto-rows-fr">
             {trustCards.map((item) => (
@@ -173,9 +173,9 @@ export default function LocationPage() {
       <section className="bg-white px-6 py-20 text-slate-950">
         <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div>
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"{{LOCATION4_FEATURE_SECTION_KICKER}}"}</p>
-            <h2 className="max-w-2xl text-4xl font-bold tracking-tight md:text-5xl">{"{{LOCATION4_FEATURE_SECTION_TITLE}}"}</h2>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">{"{{LOCATION4_FEATURE_SECTION_DESCRIPTION}}"}</p>
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Vehicle options"}</p>
+            <h2 className="max-w-2xl text-4xl font-bold tracking-tight md:text-5xl">{"The right hire vehicle for the journey"}</h2>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">{"Our Hamble-le-Rice vehicle hire service covers a wide range of needs, from everyday travel to larger transport tasks."}</p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Button size="lg" className="bg-[#00B395] text-white hover:bg-[#00997f]" asChild>
                 <a href={phoneHref}>No Hassle Booking {phoneDisplay}</a>
@@ -195,13 +195,13 @@ export default function LocationPage() {
 
       <section className="bg-white px-6 py-20">
         <div className="mx-auto max-w-5xl text-center">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"{{LOCATION4_CONTENT_SECTION_KICKER}}"}</p>
-          <h2 className="mx-auto max-w-3xl text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"{{LOCATION4_CONTENT_SECTION_TITLE}}"}</h2>
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Local hire made practical"}</p>
+          <h2 className="mx-auto max-w-3xl text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Self-drive vehicle hire that fits Hamble-le-Rice"}</h2>
           <div className="mx-auto mt-8 max-w-3xl space-y-6 text-lg leading-8 text-slate-600">
-            <p>{"{{LOCATION4_CONTENT_SECTION_PARAGRAPH_1}}"}</p>
-            <p>{"{{LOCATION4_CONTENT_SECTION_PARAGRAPH_2}}"}</p>
-            <p>{"{{LOCATION4_CONTENT_SECTION_PARAGRAPH_3}}"}</p>
-            <p>{"{{LOCATION4_CONTENT_SECTION_PARAGRAPH_4}}"}</p>
+            <p>{"Hamble-le-Rice has its own transport pattern, with marina activity, village roads and steady travel toward Southampton, Bursledon and the wider motorway network. Hiring the right vehicle can make a big difference when space, timing and access all matter."}</p>
+            <p>{"Some customers need a van for collecting furniture or moving equipment, while others want a car for flexible local travel or a minibus for a group journey. We also provide trucks for larger transport tasks where extra carrying capacity is needed."}</p>
+            <p>{"Our approach is service-led and straightforward. Vehicles are maintained, rental terms are flexible and support is available for both personal and business bookings, helping you avoid unnecessary hassle."}</p>
+            <p>{"Whether you are planning around village access, marina timings or a wider journey across Hampshire, we focus on providing a suitable self-drive vehicle with a smooth booking experience from start to finish."}</p>
           </div>
         </div>
       </section>
@@ -210,9 +210,9 @@ export default function LocationPage() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(0,179,149,0.14),_transparent_55%)] pointer-events-none" />
         <div className="mx-auto max-w-6xl">
           <div className="mx-auto mb-14 max-w-3xl text-center">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"{{LOCATION4_BENEFITS_SECTION_KICKER}}"}</p>
-            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"{{LOCATION4_BENEFITS_SECTION_TITLE}}"}</h2>
-            <p className="mt-5 text-lg leading-8 text-slate-600">{"{{LOCATION4_BENEFITS_SECTION_DESCRIPTION}}"}</p>
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Practical advantages"}</p>
+            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Why hire with us in Hamble-le-Rice"}</h2>
+            <p className="mt-5 text-lg leading-8 text-slate-600">{"Straightforward advantages for customers booking vehicle hire in Hamble-le-Rice."}</p>
           </div>
           <div className="grid gap-8 md:grid-cols-3">
             {benefits.map((item) => (
@@ -254,8 +254,8 @@ export default function LocationPage() {
         <div className="mx-auto max-w-5xl">
           <div className="mx-auto max-w-3xl text-center">
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Nearby Locations"}</p>
-            <h2 className="text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">{"{{LOCATION4_NEARBY_LOCATIONS_SECTION_TITLE}}"}</h2>
-            <p className="mt-4 text-lg leading-8 text-slate-600">{"{{LOCATION4_NEARBY_LOCATIONS_SECTION_INTRO}}"}</p>
+            <h2 className="text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">{"Nearby places to Hamble-le-Rice"}</h2>
+            <p className="mt-4 text-lg leading-8 text-slate-600">{"We support Hamble-le-Rice and other nearby places around the lower River Hamble and surrounding Southampton area."}</p>
           </div>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             {locationLinks.map((location) => (
@@ -266,16 +266,16 @@ export default function LocationPage() {
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
-              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"{{LOCATION4_INFO_CONTENT_BLOCK_1_TITLE}}"}</h3>
-              <p className="mt-3 text-base leading-7 text-slate-600">{"{{LOCATION4_INFO_CONTENT_BLOCK_1_BODY}}"}</p>
+              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"Suitable for different journeys"}</h3>
+              <p className="mt-3 text-base leading-7 text-slate-600">{"Vehicle choices are available for daily driving, group travel, cargo transport and larger commercial tasks."}</p>
             </div>
             <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
-              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"{{LOCATION4_INFO_CONTENT_BLOCK_2_TITLE}}"}</h3>
-              <p className="mt-3 text-base leading-7 text-slate-600">{"{{LOCATION4_INFO_CONTENT_BLOCK_2_BODY}}"}</p>
+              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"Easy to organise"}</h3>
+              <p className="mt-3 text-base leading-7 text-slate-600">{"A clear booking process helps you arrange transport without unnecessary delays or confusion."}</p>
             </div>
             <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
-              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"{{LOCATION4_INFO_CONTENT_BLOCK_3_TITLE}}"}</h3>
-              <p className="mt-3 text-base leading-7 text-slate-600">{"{{LOCATION4_INFO_CONTENT_BLOCK_3_BODY}}"}</p>
+              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"Prepared with reliability in mind"}</h3>
+              <p className="mt-3 text-base leading-7 text-slate-600">{"Maintained hire vehicles help keep your plans on track whether you are staying local or travelling further."}</p>
             </div>
           </div>
         </div>
@@ -285,14 +285,14 @@ export default function LocationPage() {
         <div className="mx-auto max-w-5xl">
           <div className="mx-auto max-w-3xl text-center">
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Local Guide"}</p>
-            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"{{LOCATION4_LOCAL_GUIDE_SECTION_TITLE}}"}</h2>
-            <p className="mt-5 text-lg leading-8 text-slate-600">{"{{LOCATION4_LOCAL_GUIDE_SECTION_DESCRIPTION}}"}</p>
+            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Driving and route tips for Hythe"}</h2>
+            <p className="mt-5 text-lg leading-8 text-slate-600">{"Useful local driving notes for getting around Hythe in a hire vehicle with less hassle."}</p>
           </div>
           <div className="mx-auto mt-12 max-w-4xl space-y-6 text-left">
-            <p className="text-base leading-8 text-slate-600">{"{{LOCATION4_LOCAL_GUIDE_PARAGRAPH_1}}"}</p>
-            <p className="text-base leading-8 text-slate-600">{"{{LOCATION4_LOCAL_GUIDE_PARAGRAPH_2}}"}</p>
-            <p className="text-base leading-8 text-slate-600">{"{{LOCATION4_LOCAL_GUIDE_PARAGRAPH_3}}"}</p>
-            <p className="text-base leading-8 text-slate-600">{"{{LOCATION4_LOCAL_GUIDE_PARAGRAPH_4}}"}</p>
+            <p className="text-base leading-8 text-slate-600">{"Hiring a vehicle in Hythe often means planning around local high street traffic, waterfront roads and short links in and out of the town. If you are collecting furniture, doing a house move or making business deliveries, it helps to allow extra time for tighter residential streets and busier periods near the centre."}</p>
+            <p className="text-base leading-8 text-slate-600">{"For longer trips, most drivers use the main local routes out of Hythe before joining wider corridors towards Southampton and the surrounding area. That makes early route planning worthwhile if you are in a larger van, minibus or truck, especially when you want to avoid unnecessary turns through older streets or seafront traffic."}</p>
+            <p className="text-base leading-8 text-slate-600">{"If you need to refuel before returning your hire vehicle, a nearby option is Sainsbury's Petrol Station Shop, which can be useful for topping up and picking up any last-minute travel essentials. It is a sensible stop to build into your return journey rather than leaving fuel planning until the final few minutes."}</p>
+            <p className="text-base leading-8 text-slate-600">{"Hythe is a practical base for short self-drive jobs, from local collections and storage runs to day hires for events or business transport. If you are heading out with a loaded vehicle, check your parking space at both ends of the journey, give yourself extra room for reversing, and choose the simplest route rather than the shortest one."}</p>
           </div>
         </div>
       </section>
@@ -300,9 +300,9 @@ export default function LocationPage() {
       <section className="bg-white px-6 py-20">
         <div className="mx-auto max-w-4xl">
           <div className="mb-12 text-center">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"{{LOCATION4_FAQ_SECTION_KICKER}}"}</p>
-            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"{{LOCATION4_FAQ_SECTION_TITLE}}"}</h2>
-            <p className="mt-4 text-lg leading-8 text-slate-600">{"{{LOCATION4_FAQ_SECTION_DESCRIPTION}}"}</p>
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Hamble-le-Rice FAQs"}</p>
+            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Common booking questions"}</h2>
+            <p className="mt-4 text-lg leading-8 text-slate-600">{"Useful answers for customers arranging self-drive hire in Hamble-le-Rice."}</p>
           </div>
           <div className="rounded-3xl border border-slate-200 bg-slate-50 px-6 shadow-sm">
             {faqs.map((item, index) => (
@@ -320,8 +320,8 @@ export default function LocationPage() {
 
       <section className="bg-[#00B395] px-6 py-16 text-center text-white">
         <div className="mx-auto max-w-2xl">
-          <h2 className="mb-4 text-4xl font-bold">{"{{LOCATION4_CTA_TITLE}}"}</h2>
-          <p className="mb-8 text-lg text-white/85">{"{{LOCATION4_CTA_DESCRIPTION}}"}</p>
+          <h2 className="mb-4 text-4xl font-bold">{"Planning a hire in Hamble-le-Rice?"}</h2>
+          <p className="mb-8 text-lg text-white/85">{"Get practical help choosing the right car, van, minibus or truck for your Hamble-le-Rice booking."}</p>
           <Button size="lg" className="bg-white text-[#00B395] hover:bg-gray-100" asChild>
             <a href={phoneHref}>Book Now</a>
           </Button>

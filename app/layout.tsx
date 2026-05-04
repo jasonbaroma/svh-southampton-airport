@@ -3,8 +3,8 @@ import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: '{{META_TITLE}}',
-  description: '{{META_DESCRIPTION}}',
+  title: 'Van, Car & Minibus Hire Southampton Airport | Southern Van Hire',
+  description: 'Southern Van Hire offers van, car, minibus and truck hire around Southampton Airport with flexible booking, maintained vehicles and delivery options.',
   generator: 'v0.app',
   icons: {
     icon: [

@@ -158,8 +158,8 @@ export default function LocationPage() {
           </div>
           <div className="grid gap-8 md:grid-cols-3 md:auto-rows-fr">
             {trustCards.map((item) => (
-              <Card key={item.title} className="border border-slate-100 bg-white p-8 shadow-[0_20px_45px_-25px_rgba(15,23,42,0.22)]">
-                <div className="mb-6 flex w-full items-center gap-3 rounded-2xl bg-[#00B395]/10 px-4 py-4 text-left text-[#00B395]">
+              <Card key={item.title} className="flex h-full flex-col border border-slate-100 bg-white p-8 shadow-[0_20px_45px_-25px_rgba(15,23,42,0.22)]">
+                <div className="mb-6 flex min-h-[5.5rem] w-full items-center gap-3 rounded-2xl bg-[#00B395]/10 px-4 py-4 text-left text-[#00B395]">
                   <item.icon className="h-7 w-7 shrink-0" />
                   <h3 className="text-xl font-bold leading-tight">{item.title}</h3>
                 </div>

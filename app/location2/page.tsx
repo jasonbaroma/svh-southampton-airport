@@ -1,6 +1,5 @@
-﻿"use client";
+"use client";
 
-import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Image from "next/image";
@@ -8,7 +7,6 @@ import Link from "next/link";
 import { mainLocationName } from "@/lib/company";
 import { phoneDisplay, phoneHref } from "@/lib/contact";
 import { buildLocationLinks } from "@/lib/location-links";
-import { slugifyLocation } from "@/lib/utils";
 import {
   BadgePoundSterling,
   CheckCircle2,
@@ -20,12 +18,6 @@ import {
   Star,
   Users,
 } from "lucide-react";
-
-export const metadata = {
-  alternates: {
-    canonical: `/${slugifyLocation("Hamble-le-Rice")}`,
-  },
-} satisfies Metadata;
 
 export default function LocationPage() {
   const locationLinks = buildLocationLinks("Hamble-le-Rice");

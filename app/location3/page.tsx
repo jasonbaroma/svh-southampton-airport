@@ -1,5 +1,6 @@
 ﻿"use client";
 
+import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Image from "next/image";
@@ -7,6 +8,7 @@ import Link from "next/link";
 import { mainLocationName } from "@/lib/company";
 import { phoneDisplay, phoneHref } from "@/lib/contact";
 import { buildLocationLinks } from "@/lib/location-links";
+import { slugifyLocation } from "@/lib/utils";
 import {
   BadgePoundSterling,
   CheckCircle2,
@@ -19,27 +21,33 @@ import {
   Users,
 } from "lucide-react";
 
+export const metadata = {
+  alternates: {
+    canonical: `/${slugifyLocation("Marchwood")}`,
+  },
+} satisfies Metadata;
+
 export default function LocationPage() {
-  const locationLinks = buildLocationLinks("Romsey");
-  const heroImage = { src: "/images/location3-image1.jpeg", alt: "Compact hire car parked near a traditional market-town street in Romsey" };
-  const supportImage = { src: "/images/location3-image2.jpeg", alt: "Staff member helping a customer beside a hire vehicle in Romsey" };
+  const locationLinks = buildLocationLinks("Marchwood");
+  const heroImage = { src: "/images/location3-image1.jpeg", alt: "Rental van on a road near Marchwood and the Waterside area" };
+  const supportImage = { src: "/images/location3-image2.jpeg", alt: "Hire vehicle travelling through Marchwood near local industrial routes" };
   const faqs = [
-    { question: "Can you deliver hire vehicles in Marchwood?", answer: "Yes, delivery and collection can be arranged, which is useful for homes, businesses and work sites around Marchwood." },
-    { question: "Can I hire for more than a day in Marchwood?", answer: "Yes, subject to availability and booking details, with options covering short rentals and longer hire periods." },
-    { question: "What types of vehicles can I book in Marchwood?", answer: "We offer cars, vans, minibuses and trucks, so the choice depends on what you need to carry and how far you are travelling." },
-    { question: "Is Marchwood vehicle hire suitable for business use?", answer: "Many customers do. It is a practical option for temporary fleet support, deliveries, events and site work." },
-    { question: "What should I prepare before booking?", answer: "It helps to know the number of passengers, the amount of load space needed and your planned hire dates." },
+    { question: "Do you provide vehicle hire in Eastleigh for private and business customers?", answer: "Yes, we offer Eastleigh vehicle hire for both personal and business use, subject to availability and booking details." },
+    { question: "Can I hire a vehicle in Eastleigh for more than a few days?", answer: "Yes, depending on the vehicle and your plans, longer hire periods can usually be arranged." },
+    { question: "What types of vehicles can I hire in Eastleigh?", answer: "Our fleet includes vans, cars, minibuses and trucks, so we can help with different transport needs." },
+    { question: "Is delivery and collection available around Eastleigh?", answer: "In many cases, yes. Delivery and collection can make the process easier, especially for busy households and businesses." },
+    { question: "What licence do I need to hire a vehicle in Eastleigh?", answer: "A standard driving licence is often enough for many vehicles, but requirements vary by category and driver details." },
   ];
   const trustCards = [
-    { title: "Ready-to-go fleet", description: "Vehicles are prepared with reliability and everyday usability in mind.", icon: ShieldCheck },
-    { title: "Straightforward hire terms", description: "From short local rentals to longer bookings, we keep the process clear and practical.", icon: Star },
-    { title: "Useful for home and work", description: "Our service suits domestic customers, small firms and larger business users needing flexible transport.", icon: Users },
+    { title: "Useful fleet variety", description: "A broad selection of vehicles means we can support everything from simple local trips to larger transport jobs.", icon: ShieldCheck },
+    { title: "Hire that works around you", description: "Flexible rental arrangements make it easier to book around work schedules, move dates and changing plans.", icon: Star },
+    { title: "Straightforward support", description: "We focus on practical help, maintained vehicles and clear service rather than overcomplicating the booking.", icon: Users },
   ];
   const featureStats = [
-    { value: "Car Hire", label: "Cars for everyday travel, business appointments and local journeys." },
-    { value: "Van Hire", label: "Vans sized for moves, collections, stock runs and trade work." },
-    { value: "Minibus Hire", label: "Minibuses for organised group trips, events and shared travel." },
-    { value: "Truck Hire", label: "Trucks for larger loads and heavier transport requirements." },
+    { value: "Car Hire", label: "Cars for everyday travel, business journeys and airport runs." },
+    { value: "Van Hire", label: "Vans suited to moving, collections, deliveries and trade work." },
+    { value: "Minibus Hire", label: "Minibuses for group outings, team travel and event transport." },
+    { value: "Truck Hire", label: "Trucks for heavier loads and larger commercial transport tasks." },
   ];
   const vehicleCards = [
     { src: "/images/smallvan1.jpg", alt: "Small van hire vehicle", title: "Small Vans" },
@@ -52,9 +60,9 @@ export default function LocationPage() {
     { src: "/images/7.5tonnecurtainsidehire.jpg", alt: "7.5 tonne curtainside truck hire vehicle", title: "Truck Hire" },
   ];
   const benefits = [
-    { icon: BadgePoundSterling, title: "Less running around", description: "Free delivery and collection can make hiring easier for homes, businesses and site-based work.", detail: "Helpful if you are arranging transport around a busy schedule or do not want an extra trip to collect the vehicle." },
-    { icon: Clock3, title: "The right size available", description: "Our range covers everything from compact cars to larger vans, minibuses and trucks.", detail: "That means you can match the vehicle to the job instead of paying for more size than you need." },
-    { icon: CheckCircle2, title: "Flexible around your plans", description: "Rental periods can be arranged around short local jobs, longer projects or ongoing business support.", detail: "A flexible approach is especially useful for temporary demand, planned moves or contract work." },
+    { icon: BadgePoundSterling, title: "Choice that fits the job", description: "Choose the right size vehicle without paying for more space than you need.", detail: "From compact cars to larger vans, minibuses and trucks, the aim is to match the booking to the job properly." },
+    { icon: Clock3, title: "Hire terms with flexibility", description: "Vehicle hire can work around planned moves, business workloads and last-minute transport gaps.", detail: "Short and longer rental periods help if you need cover for a day, a project or seasonal demand." },
+    { icon: CheckCircle2, title: "Straightforward from start to finish", description: "Good support and clear arrangements help keep the process straightforward from booking to return.", detail: "That means practical guidance, maintained vehicles and less unnecessary hassle on the day." },
   ];
 
   return (
@@ -103,8 +111,8 @@ export default function LocationPage() {
           <div className="relative z-10 grid gap-12 lg:grid-cols-[1fr_420px] lg:items-center">
             <div className="max-w-3xl">
               <div className="flex flex-col gap-6">
-                <h1 className="text-5xl font-bold tracking-tight">{"Flexible vehicle hire in Romsey"}</h1>
-                <p className="text-xl text-white">{"Flexible self-drive hire for home moves, business transport, deliveries and general travel, backed by practical support and maintained vehicles."}</p>
+                <h1 className="text-5xl font-bold tracking-tight">{"Reliable vehicle hire in Marchwood"}</h1>
+                <p className="text-xl text-white">{"Van, car, minibus and truck hire for Marchwood, with maintained vehicles, flexible rental periods and practical service for personal and business use."}</p>
                 <Button size="lg" className="w-fit bg-[#00B395] text-white hover:bg-[#00997f]" asChild>
                   <a href={phoneHref}>Book Now</a>
                 </Button>
@@ -127,10 +135,10 @@ export default function LocationPage() {
               <div className="max-w-2xl">
                 <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#00B395]/25 bg-white px-3 py-1 text-sm font-medium text-[#00B395]">
                   <PhoneCall className="h-4 w-4" />
-                  {"Straightforward local booking"}
+                  {"Easy booking for Eastleigh"}
                 </div>
-                <h2 className="text-2xl font-bold tracking-tight text-slate-950 md:text-3xl">{"Arrange your Marchwood hire with ease"}</h2>
-                <p className="mt-3 text-base leading-7 text-slate-600">{"Booking vehicle hire in Marchwood should feel simple. We help arrange suitable vehicles for domestic moves, business transport, delivery work and day-to-day driving, with practical support from enquiry through to return."}</p>
+                <h2 className="text-2xl font-bold tracking-tight text-slate-950 md:text-3xl">{"Straightforward vehicle hire in Marchwood"}</h2>
+                <p className="mt-3 text-base leading-7 text-slate-600">{"Booking vehicle hire in Marchwood should be clear and efficient. We help arrange suitable vans, cars, minibuses and trucks for domestic jobs, commercial work and longer-distance travel without unnecessary complications."}</p>
                 <div className="mt-5 flex flex-wrap gap-3 text-sm text-slate-600">
                   <div className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-sm">
                     <PhoneCall className="h-4 w-4 text-[#00B395]" />
@@ -138,7 +146,7 @@ export default function LocationPage() {
                   </div>
                   <div className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-sm">
                     <Clock3 className="h-4 w-4 text-[#00B395]" />
-                    {"Short and longer hire periods"}
+                    {"Flexible self-drive hire"}
                   </div>
                 </div>
               </div>
@@ -153,8 +161,8 @@ export default function LocationPage() {
       <section id="trust" className="px-6 py-16">
         <div className="mx-auto max-w-6xl">
           <div className="mb-12 text-center">
-            <h2 className="mb-4 text-4xl font-bold">{"A reliable choice in Marchwood"}</h2>
-            <p className="text-lg text-muted-foreground">{"Customers in Marchwood choose us for dependable vehicles, practical support and a hire service that fits real transport needs."}</p>
+            <h2 className="mb-4 text-4xl font-bold">{"A dependable option for Marchwood drivers"}</h2>
+            <p className="text-lg text-muted-foreground">{"Marchwood customers rely on us for well-maintained vehicles, useful booking support and a straightforward rental service that suits real transport jobs."}</p>
           </div>
           <div className="grid gap-8 md:grid-cols-3 md:auto-rows-fr">
             {trustCards.map((item) => (
@@ -174,8 +182,8 @@ export default function LocationPage() {
         <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div>
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Our hire range"}</p>
-            <h2 className="max-w-2xl text-4xl font-bold tracking-tight md:text-5xl">{"Cars, vans, minibuses and trucks in one place"}</h2>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">{"We provide a broad choice of self-drive vehicles for customers in and around Marchwood, with options suited to both private and commercial use."}</p>
+            <h2 className="max-w-2xl text-4xl font-bold tracking-tight md:text-5xl">{"Vehicle rental options in Marchwood"}</h2>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">{"Our Marchwood vehicle hire service covers everyday transport, commercial support and larger-capacity needs with a broad self-drive fleet."}</p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Button size="lg" className="bg-[#00B395] text-white hover:bg-[#00997f]" asChild>
                 <a href={phoneHref}>No Hassle Booking {phoneDisplay}</a>
@@ -195,13 +203,13 @@ export default function LocationPage() {
 
       <section className="bg-white px-6 py-20">
         <div className="mx-auto max-w-5xl text-center">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Practical local service"}</p>
-          <h2 className="mx-auto max-w-3xl text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Dependable self-drive hire for Marchwood"}</h2>
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Why hire with us"}</p>
+          <h2 className="mx-auto max-w-3xl text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Flexible hire for Marchwood work and travel"}</h2>
           <div className="mx-auto mt-8 max-w-3xl space-y-6 text-lg leading-8 text-slate-600">
-            <p>{"Marchwood is a useful location for vehicle hire because it sits close to Southampton while remaining well placed for routes through the New Forest and across southern Hampshire. That mix makes it suitable for both local jobs and longer business or personal journeys."}</p>
-            <p>{"Customers in Marchwood often need vans for moving household items, collecting materials or handling temporary delivery demand. We also provide cars for everyday travel, minibuses for group transport and trucks for larger loads where more capacity is needed."}</p>
-            <p>{"Our service is built around keeping things practical. Vehicles are maintained, booking options are flexible and free delivery and collection can help reduce the time and hassle involved in arranging transport."}</p>
-            <p>{"Whether you are booking for one day, one week or a longer period, the aim is the same: make sure you have a dependable self-drive vehicle that suits the work ahead without overcomplicating the process."}</p>
+            <p>{"Southern Van Hire supports customers in Marchwood with self-drive vehicles for both planned and last-minute transport needs. Whether you are moving stock, handling a home move or covering temporary business demand, we offer practical options across several vehicle types."}</p>
+            <p>{"Marchwood is well connected for routes into Southampton and across the Waterside area, making it a useful base for local trade work, deliveries and collection runs. Many customers need vehicles that can cope with frequent loading, daily mileage and reliable access to nearby industrial and residential areas."}</p>
+            <p>{"Van hire is a strong part of what we do in Marchwood, but it is not the whole picture. Cars are useful for personal travel and temporary replacement needs, minibuses suit group journeys, and trucks can help where a larger carrying capacity is required."}</p>
+            <p>{"For customers in Marchwood, that means practical vehicle hire without unnecessary complication. Whether you need a van for a move, a car for short-term travel, a minibus for a group booking or a truck for heavier work, the focus is on supplying the right vehicle in a straightforward, dependable way."}</p>
           </div>
         </div>
       </section>
@@ -210,9 +218,9 @@ export default function LocationPage() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(0,179,149,0.14),_transparent_55%)] pointer-events-none" />
         <div className="mx-auto max-w-6xl">
           <div className="mx-auto mb-14 max-w-3xl text-center">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Why it works"}</p>
-            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Useful reasons to book in Marchwood"}</h2>
-            <p className="mt-5 text-lg leading-8 text-slate-600">{"A practical service built around simple booking, dependable vehicles and flexible rental options in Marchwood."}</p>
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Practical advantages"}</p>
+            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Why Marchwood customers choose us"}</h2>
+            <p className="mt-5 text-lg leading-8 text-slate-600">{"Marchwood customers often need dependable transport for port-related work, local moving jobs and everyday business use. Our hire service focuses on practical vehicle choice, flexible terms and straightforward support."}</p>
           </div>
           <div className="grid gap-8 md:grid-cols-3">
             {benefits.map((item) => (
@@ -254,8 +262,8 @@ export default function LocationPage() {
         <div className="mx-auto max-w-5xl">
           <div className="mx-auto max-w-3xl text-center">
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Nearby Locations"}</p>
-            <h2 className="text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">{"More areas around Marchwood"}</h2>
-            <p className="mt-4 text-lg leading-8 text-slate-600">{"Marchwood is one of several places we cover on this side of Southampton Water, with support across nearby towns and villages."}</p>
+            <h2 className="text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">{"Nearby hire areas around Marchwood"}</h2>
+            <p className="mt-4 text-lg leading-8 text-slate-600">{"If you are based in Marchwood, you may also want to explore nearby vehicle hire coverage across other Waterside and Southampton-side locations."}</p>
           </div>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             {locationLinks.map((location) => (
@@ -266,16 +274,16 @@ export default function LocationPage() {
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
-              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"Different vehicle types available"}</h3>
-              <p className="mt-3 text-base leading-7 text-slate-600">{"Our fleet includes vehicles suited to personal use, trade jobs, group outings and larger transport tasks."}</p>
+              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"Options for Different Jobs"}</h3>
+              <p className="mt-3 text-base leading-7 text-slate-600">{"A broad fleet means you can book a vehicle that suits local errands, business travel, removals, group trips or heavier transport work."}</p>
             </div>
             <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
-              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"Simple to arrange"}</h3>
-              <p className="mt-3 text-base leading-7 text-slate-600">{"We aim to keep booking straightforward, with practical help choosing a suitable hire vehicle for the job."}</p>
+              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"Prepared for the Road"}</h3>
+              <p className="mt-3 text-base leading-7 text-slate-600">{"We aim to keep vehicles in good condition so customers can book with confidence for day-to-day self-drive use."}</p>
             </div>
             <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
-              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"Dependable on the day"}</h3>
-              <p className="mt-3 text-base leading-7 text-slate-600">{"Well-prepared rental vehicles help customers travel with confidence for local and longer-distance journeys."}</p>
+              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"Built Around Convenience"}</h3>
+              <p className="mt-3 text-base leading-7 text-slate-600">{"With flexible booking periods and practical support, the service is designed to work around real schedules and workloads."}</p>
             </div>
           </div>
         </div>
@@ -285,14 +293,14 @@ export default function LocationPage() {
         <div className="mx-auto max-w-5xl">
           <div className="mx-auto max-w-3xl text-center">
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Local Guide"}</p>
-            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Driving in and around Romsey"}</h2>
-            <p className="mt-5 text-lg leading-8 text-slate-600">{"Useful driving and route-planning notes for getting the most from vehicle hire in and around Romsey."}</p>
+            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Driving around Marchwood"}</h2>
+            <p className="mt-5 text-lg leading-8 text-slate-600">{"Useful driving notes for planning vehicle hire around Marchwood and the surrounding routes."}</p>
           </div>
           <div className="mx-auto mt-12 max-w-4xl space-y-6 text-left">
-            <p className="text-base leading-8 text-slate-600">{"Romsey works well as a pickup point if you want quick access to the wider Test Valley and Southampton side of Hampshire without starting in a busier city centre. For local jobs, it is usually easiest to plan collections and deliveries around the town centre at quieter times, especially if you are using a larger van or truck."}</p>
-            <p className="text-base leading-8 text-slate-600">{"If you are heading out of Romsey with a hire vehicle, keep your route simple and allow a little extra time for roundabouts, loading stops and unfamiliar roads. That is especially useful for house moves, furniture collections and business runs where a straightforward route matters more than the shortest sat nav estimate."}</p>
-            <p className="text-base leading-8 text-slate-600">{"For refuelling before return, Greatbridge Service Station is a practical option close to Romsey, and there is also an Esso site a little further out if your journey takes you beyond the town. Topping up near the end of your hire can make drop-off and collection arrangements much easier."}</p>
-            <p className="text-base leading-8 text-slate-600">{"Many customers hiring in Romsey are making short local trips, supporting trade work, or travelling onward towards surrounding Hampshire routes. If you are carrying heavier loads or driving a larger vehicle for the first time, it helps to check parking space, turning room and unloading access at both ends before you set off."}</p>
+            <p className="text-base leading-8 text-slate-600">{"Marchwood works well for practical vehicle hire because local trips often start on village roads before joining wider Southampton and New Forest routes. If you are collecting furniture, moving equipment or heading out for deliveries, it helps to plan a quieter departure time and allow a little extra room on local stretches such as Hythe Road."}</p>
+            <p className="text-base leading-8 text-slate-600">{"Main Road is one of the useful through routes for getting in and out of Marchwood, especially if you want a straightforward link towards surrounding areas without weaving through smaller residential roads. For larger vans or trucks, a steady route plan is usually better than relying on last-minute turns through tighter side streets."}</p>
+            <p className="text-base leading-8 text-slate-600">{"If your hire is for business use, site work or regular drop-offs, Marchwood is a sensible base because you can get loaded and underway without dealing with city-centre traffic straight away. Many drivers hiring here are looking for simple self-drive transport for tools, stock, event items or household loads, so choosing the right size vehicle can make local access much easier."}</p>
+            <p className="text-base leading-8 text-slate-600">{"Before setting off, it is worth checking your unloading point, parking space and turning room, especially if you are taking a longer wheelbase van or anything larger. Around Marchwood, the easiest journeys are usually the ones planned with local road width, loading time and return access in mind rather than just the shortest distance on a map."}</p>
           </div>
         </div>
       </section>
@@ -300,9 +308,9 @@ export default function LocationPage() {
       <section className="bg-white px-6 py-20">
         <div className="mx-auto max-w-4xl">
           <div className="mb-12 text-center">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Marchwood hire FAQs"}</p>
-            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Questions we often hear"}</h2>
-            <p className="mt-4 text-lg leading-8 text-slate-600">{"Answers to common questions about booking and using hire vehicles in Marchwood."}</p>
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Eastleigh hire FAQs"}</p>
+            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Marchwood vehicle hire FAQs"}</h2>
+            <p className="mt-4 text-lg leading-8 text-slate-600">{"Common questions about hiring a vehicle in Marchwood, including booking flexibility, vehicle types and practical local use."}</p>
           </div>
           <div className="rounded-3xl border border-slate-200 bg-slate-50 px-6 shadow-sm">
             {faqs.map((item, index) => (
@@ -320,8 +328,8 @@ export default function LocationPage() {
 
       <section className="bg-[#00B395] px-6 py-16 text-center text-white">
         <div className="mx-auto max-w-2xl">
-          <h2 className="mb-4 text-4xl font-bold">{"Need a vehicle in Marchwood?"}</h2>
-          <p className="mb-8 text-lg text-white/85">{"Speak to Southern Van Hire for practical advice and straightforward vehicle hire in Marchwood."}</p>
+          <h2 className="mb-4 text-4xl font-bold">{"Book a Marchwood hire vehicle"}</h2>
+          <p className="mb-8 text-lg text-white/85">{"If you need a rental vehicle in Marchwood, we can help you choose a suitable option for business use, moving jobs or general self-drive transport."}</p>
           <Button size="lg" className="bg-white text-[#00B395] hover:bg-gray-100" asChild>
             <a href={phoneHref}>Book Now</a>
           </Button>

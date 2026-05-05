@@ -49,24 +49,24 @@ export function HomePage({
   ];
   const faqs = [
     {
-      question: "{{FAQ_1_QUESTION}}",
-      answer: "{{FAQ_1_ANSWER}}",
+      question: "What types of vehicles can I hire?",
+      answer: "Yes, we offer vans, cars, minibuses, and trucks, so you can book according to the job rather than settling for a one-size-fits-all option.",
     },
     {
-      question: "{{FAQ_2_QUESTION}}",
-      answer: "{{FAQ_2_ANSWER}}",
+      question: "Can I hire a vehicle for more than one day?",
+      answer: "Hire periods can usually be arranged for short or longer durations, depending on availability and what you need the vehicle for.",
     },
     {
-      question: "{{FAQ_3_QUESTION}}",
-      answer: "{{FAQ_3_ANSWER}}",
+      question: "Do you offer delivery and collection?",
+      answer: "Yes, delivery and collection can be arranged in many cases, which is especially useful for home moves and business bookings.",
     },
     {
-      question: "{{FAQ_4_QUESTION}}",
-      answer: "{{FAQ_4_ANSWER}}",
+      question: "What do people usually hire vehicles for?",
+      answer: "Many customers hire for house moves, furniture collection, business deliveries, temporary fleet cover, airport runs, and group travel.",
     },
     {
-      question: "{{FAQ_5_QUESTION}}",
-      answer: "{{FAQ_5_ANSWER}}",
+      question: "What can I expect from the service?",
+      answer: "We aim to provide clean, maintained vehicles and clear booking support so you can hire with confidence and get on with the journey.",
     },
   ];
 
@@ -128,10 +128,10 @@ export function HomePage({
             <div className="max-w-3xl">
               <div className="flex flex-col gap-6">
                 <h1 className="text-5xl font-bold tracking-tight">
-                  {"{{HERO_TITLE}}"}
+                  {"Vehicle hire near Southampton Airport made simple"}
                 </h1>
                 <p className="text-xl text-white">
-                  {"{{HERO_SUBTITLE}}"}
+                  {"Flexible self-drive hire for vans, cars, minibuses, and trucks, with maintained vehicles, practical support, and convenient delivery and collection options."}
                 </p>
                 <Button
                   size="lg"
@@ -166,22 +166,22 @@ export function HomePage({
               <div className="max-w-2xl">
                 <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#00B395]/25 bg-white px-3 py-1 text-sm font-medium text-[#00B395]">
                   <PhoneCall className="h-4 w-4" />
-                  {"{{BOOKING_BADGE_TEXT}}"}
+                  {"Easy booking, practical support"}
                 </div>
                 <h2 className="text-2xl font-bold tracking-tight text-slate-950 md:text-3xl">
-                  {"{{BOOKING_SECTION_TITLE}}"}
+                  {"Book the right vehicle without the usual hassle"}
                 </h2>
                 <p className="mt-3 text-base leading-7 text-slate-600">
-                  {"{{BOOKING_SECTION_DESCRIPTION}}"}
+                  {"Booking with Southern Van Hire is designed to be simple. Tell us what you need the vehicle for, how long you need it, and where it needs to be, and we will help arrange a suitable hire with clear, practical support from start to finish."}
                 </p>
                 <div className="mt-5 flex flex-wrap gap-3 text-sm text-slate-600">
                   <div className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-sm">
                     <PhoneCall className="h-4 w-4 text-[#00B395]" />
-                    {"{{BOOKING_FEATURE_1}}"}
+                    {"Free delivery and collection"}
                   </div>
                   <div className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-sm">
                     <Clock3 className="h-4 w-4 text-[#00B395]" />
-                    {"{{BOOKING_FEATURE_2}}"}
+                    {"Flexible rental periods"}
                   </div>
                 </div>
               </div>
@@ -201,28 +201,28 @@ export function HomePage({
         <div className="mx-auto max-w-6xl">
           <div className="mb-12 text-center">
             <h2 className="mb-4 text-4xl font-bold">
-              {"{{TRUST_SECTION_TITLE}}"}
+              {"A hire service you can rely on"}
             </h2>
             <p className="text-lg text-muted-foreground">
-              {"{{TRUST_SECTION_DESCRIPTION}}"}
+              {"From Southampton Airport, we provide dependable self-drive hire with broad vehicle choice, flexible booking and support for both personal and business customers."}
             </p>
           </div>
 
           <div className="grid gap-8 md:grid-cols-3 md:auto-rows-fr">
             {[
               {
-                title: "{{TRUST_CARD_1_TITLE}}",
-                description: "{{TRUST_CARD_1_DESCRIPTION}}",
+                title: "Well-prepared vehicles",
+                description: "A maintained fleet helps keep journeys dependable whether you need a vehicle for one day, a week or longer.",
                 icon: ShieldCheck,
               },
               {
-                title: "{{TRUST_CARD_2_TITLE}}",
-                description: "{{TRUST_CARD_2_DESCRIPTION}}",
+                title: "Built for real-world use",
+                description: "Suitable for home moves, business travel, group transport, deliveries and temporary replacement needs.",
                 icon: Star,
               },
               {
-                title: "{{TRUST_CARD_3_TITLE}}",
-                description: "{{TRUST_CARD_3_DESCRIPTION}}",
+                title: "Service that stays practical",
+                description: "Straightforward booking, practical advice and flexible arrangements help you get moving with less hassle.",
                 icon: Users,
               },
             ].map((item) => (
@@ -249,13 +249,13 @@ export function HomePage({
         <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div>
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">
-              {"{{FEATURE_SECTION_KICKER}}"}
+              {"Our hire range"}
             </p>
             <h2 className="max-w-2xl text-4xl font-bold tracking-tight md:text-5xl">
-              {"{{FEATURE_SECTION_TITLE}}"}
+              {"Vans, cars, minibuses, and trucks from one reliable provider"}
             </h2>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-              {"{{FEATURE_SECTION_DESCRIPTION}}"}
+              {"We are strongest in van hire, but our service covers a full range of self-drive vehicles to support personal, commercial, and group travel needs."}
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Button
@@ -272,19 +272,19 @@ export function HomePage({
             {[
               {
                 value: "Car Hire",
-                label: "{{FEATURE_CARD_1_DESCRIPTION}}",
+                label: "Practical vans for moving, deliveries, trade jobs, and everyday transport tasks.",
               },
               {
                 value: "Van Hire",
-                label: "{{FEATURE_CARD_2_DESCRIPTION}}",
+                label: "Comfortable car hire for local trips, business travel, and general day-to-day driving.",
               },
               {
                 value: "Minibus Hire",
-                label: "{{FEATURE_CARD_3_DESCRIPTION}}",
+                label: "Minibuses that make group outings, airport runs, and event travel easier to organise.",
               },
               {
                 value: "Truck Hire",
-                label: "{{FEATURE_CARD_4_DESCRIPTION}}",
+                label: "Truck hire for heavier loads, larger moves, and commercial transport requirements.",
               },
             ].map((item) => (
               <div
@@ -304,16 +304,16 @@ export function HomePage({
       <section className="bg-white px-6 py-20">
         <div className="mx-auto max-w-5xl text-center">
           <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">
-            {"{{CONTENT_SECTION_KICKER}}"}
+            {"Dependable service"}
           </p>
           <h2 className="mx-auto max-w-3xl text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">
-            {"{{CONTENT_SECTION_TITLE}}"}
+            {"Vehicle hire built around real day-to-day needs"}
           </h2>
           <div className="mx-auto mt-8 max-w-3xl space-y-6 text-lg leading-8 text-slate-600">
-            <p>{"{{CONTENT_SECTION_PARAGRAPH_1}}"}</p>
-            <p>{"{{CONTENT_SECTION_PARAGRAPH_2}}"}</p>
-            <p>{"{{CONTENT_SECTION_PARAGRAPH_3}}"}</p>
-            <p>{"{{CONTENT_SECTION_PARAGRAPH_4}}"}</p>
+            <p>{"Southern Van Hire provides practical self-drive vehicle hire for customers who need transport that works properly and arrives ready for the job. We support everything from one-off personal hires to regular business use across a wide service area."}</p>
+            <p>{"Our fleet covers vans for moving and deliveries, cars for everyday travel, minibuses for group transport, and trucks for heavier loads. Whether you are relocating, picking up stock, attending an exhibition, or covering fleet downtime, we aim to make the process straightforward."}</p>
+            <p>{"We focus on maintained vehicles, flexible booking periods, and service that feels clear rather than complicated. Customers often come to us because they want a sensible option without unnecessary delays, confusing steps, or overblown promises."}</p>
+            <p>{"For both private and commercial hire, we take a practical approach. That means helping you choose a vehicle that suits the journey, arranging convenient delivery and collection where needed, and keeping the whole experience as smooth as possible."}</p>
           </div>
         </div>
       </section>
@@ -326,13 +326,13 @@ export function HomePage({
         <div className="mx-auto max-w-6xl">
           <div className="mx-auto mb-14 max-w-3xl text-center">
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">
-              {"{{BENEFITS_SECTION_KICKER}}"}
+              {"Why book with us"}
             </p>
             <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">
-              {"{{BENEFITS_SECTION_TITLE}}"}
+              {"Practical benefits for personal and business hire"}
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-600">
-              {"{{BENEFITS_SECTION_DESCRIPTION}}"}
+              {"A straightforward hire service should save time, reduce hassle, and give you the right vehicle for the job. That is what we focus on."}
             </p>
           </div>
 
@@ -340,21 +340,21 @@ export function HomePage({
             {[
               {
                 icon: BadgePoundSterling,
-                title: "{{BENEFIT_1_TITLE}}",
-                description: "{{BENEFIT_1_DESCRIPTION}}",
-                detail: "{{BENEFIT_1_DETAIL}}",
+                title: "Broad vehicle choice",
+                description: "Choose from vans, cars, minibuses, and trucks for short-term jobs or longer requirements.",
+                detail: "Useful whether you are moving house, covering business demand, collecting furniture, or arranging transport for a group.",
               },
               {
                 icon: Clock3,
-                title: "{{BENEFIT_2_TITLE}}",
-                description: "{{BENEFIT_2_DESCRIPTION}}",
-                detail: "{{BENEFIT_2_DETAIL}}",
+                title: "Hire that fits around you",
+                description: "Flexible hire periods help you book for a day, a weekend, a week, or longer if needed.",
+                detail: "We keep the process clear so you can match the booking to your schedule rather than forcing the job into a rigid timeslot.",
               },
               {
                 icon: CheckCircle2,
-                title: "{{BENEFIT_3_TITLE}}",
-                description: "{{BENEFIT_3_DESCRIPTION}}",
-                detail: "{{BENEFIT_3_DETAIL}}",
+                title: "Less disruption on the day",
+                description: "Delivery and collection options help make hiring more convenient, especially for busy households and working businesses.",
+                detail: "That means less wasted time getting to and from a depot and more time getting on with the reason you hired the vehicle.",
               },
             ].map((item) => (
               <div
@@ -419,10 +419,10 @@ export function HomePage({
               {"Nearby Locations"}
             </p>
             <h2 className="text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">
-              {"{{NEARBY_LOCATIONS_SECTION_TITLE}}"}
+              {"Nearby vehicle hire locations"}
             </h2>
             <p className="mt-4 text-lg leading-8 text-slate-600">
-              {"{{NEARBY_LOCATIONS_SECTION_INTRO}}"}
+              {"Browse nearby areas we cover around Southampton Airport for practical pickup, delivery and local vehicle hire support."}
             </p>
           </div>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
@@ -439,26 +439,26 @@ export function HomePage({
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
               <h3 className="text-2xl font-semibold tracking-tight text-slate-950">
-                {"{{INFO_CONTENT_BLOCK_1_TITLE}}"}
+                {"Suitable vehicles for different jobs"}
               </h3>
               <p className="mt-3 text-base leading-7 text-slate-600">
-                {"{{INFO_CONTENT_BLOCK_1_BODY}}"}
+                {"Whether you need a compact car for a short trip or a larger rental vehicle for a bigger job, we can help match the booking to the task."}
               </p>
             </div>
             <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
               <h3 className="text-2xl font-semibold tracking-tight text-slate-950">
-                {"{{INFO_CONTENT_BLOCK_2_TITLE}}"}
+                {"Maintained for dependable use"}
               </h3>
               <p className="mt-3 text-base leading-7 text-slate-600">
-                {"{{INFO_CONTENT_BLOCK_2_BODY}}"}
+                {"Our hire vehicles are prepared with day-to-day reliability in mind, helping customers travel, move goods, or transport groups with less stress."}
               </p>
             </div>
             <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
               <h3 className="text-2xl font-semibold tracking-tight text-slate-950">
-                {"{{INFO_CONTENT_BLOCK_3_TITLE}}"}
+                {"Options for short and longer hire"}
               </h3>
               <p className="mt-3 text-base leading-7 text-slate-600">
-                {"{{INFO_CONTENT_BLOCK_3_BODY}}"}
+                {"From one-day bookings to longer periods, we offer flexibility so your rental vehicle works around your plans rather than the other way round."}
               </p>
             </div>
           </div>
@@ -472,24 +472,24 @@ export function HomePage({
               {"Local Guide"}
             </p>
             <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">
-              {"{{LOCAL_GUIDE_SECTION_TITLE}}"}
+              {"Local driving guide for Southampton Airport"}
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-600">
-              {"{{LOCAL_GUIDE_SECTION_DESCRIPTION}}"}
+              {"Useful driving notes for planning vehicle hire around Southampton Airport and the wider Eastleigh area."}
             </p>
           </div>
           <div className="mx-auto mt-12 max-w-4xl space-y-6 text-left">
             <p className="text-base leading-8 text-slate-600">
-              {"{{LOCAL_GUIDE_PARAGRAPH_1}}"}
+              {"Southampton Airport sits on the Eastleigh side of the city, so hired vehicles are useful for quick onward trips into Southampton, Winchester and the wider Hampshire area. It is a practical pickup point for business travel, family visits and straightforward self-drive transport when you need to leave the airport and continue by road."}
             </p>
             <p className="text-base leading-8 text-slate-600">
-              {"{{LOCAL_GUIDE_PARAGRAPH_2}}"}
+              {"Because airport journeys often involve luggage, timed collections and unfamiliar roads, it helps to plan your first stop before setting off. If you are collecting a van, car, minibus or truck for work or a home move, give yourself a little extra time to get settled, check your route and avoid last-minute detours."}
             </p>
             <p className="text-base leading-8 text-slate-600">
-              {"{{LOCAL_GUIDE_PARAGRAPH_3}}"}
+              {"The area around Southampton Airport can become busier at typical flight and commuter times, especially around Eastleigh and the main local approach roads. For smoother travel, early collection windows and off-peak returns can make loading, parking and onward driving more manageable."}
             </p>
             <p className="text-base leading-8 text-slate-600">
-              {"{{LOCAL_GUIDE_PARAGRAPH_4}}"}
+              {"For longer runs from Southampton Airport, many drivers use the location as a convenient starting point for UK-wide travel rather than just local mileage. It works well whether you need a practical vehicle for deliveries, exhibition equipment, business support, furniture collection or a move to a new address."}
             </p>
           </div>
         </div>
@@ -499,13 +499,13 @@ export function HomePage({
         <div className="mx-auto max-w-4xl">
           <div className="mb-12 text-center">
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">
-              {"{{FAQ_SECTION_KICKER}}"}
+              {"Common questions"}
             </p>
             <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">
-              {"{{FAQ_SECTION_TITLE}}"}
+              {"Helpful answers before you book"}
             </h2>
             <p className="mt-4 text-lg leading-8 text-slate-600">
-              {"{{FAQ_SECTION_DESCRIPTION}}"}
+              {"Here are a few of the questions customers ask when comparing vehicle hire options."}
             </p>
           </div>
 
@@ -531,9 +531,9 @@ export function HomePage({
 
       <section className="bg-[#00B395] px-6 py-16 text-center text-white">
         <div className="mx-auto max-w-2xl">
-          <h2 className="mb-4 text-4xl font-bold">{"{{CTA_TITLE}}"}</h2>
+          <h2 className="mb-4 text-4xl font-bold">{"Need a vehicle hire quote?"}</h2>
           <p className="mb-8 text-lg text-white/85">
-            {"{{CTA_DESCRIPTION}}"}
+            {"Get in touch to discuss your dates, vehicle type, and delivery needs, and we will help you arrange a hire that suits the job."}
           </p>
           <Button
             size="lg"

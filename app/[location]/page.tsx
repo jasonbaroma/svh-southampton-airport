@@ -53,4 +53,3 @@ export default async function LocationSlugPage({
   const PageComponent = locationPages[match.index - 1];
   return <PageComponent />;
 }
-

@@ -1,5 +1,6 @@
 ﻿"use client";
 
+import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Image from "next/image";
@@ -7,6 +8,7 @@ import Link from "next/link";
 import { mainLocationName } from "@/lib/company";
 import { phoneDisplay, phoneHref } from "@/lib/contact";
 import { buildLocationLinks } from "@/lib/location-links";
+import { slugifyLocation } from "@/lib/utils";
 import {
   BadgePoundSterling,
   CheckCircle2,
@@ -19,27 +21,33 @@ import {
   Users,
 } from "lucide-react";
 
+export const metadata = {
+  alternates: {
+    canonical: `/${slugifyLocation("Botley")}`,
+  },
+} satisfies Metadata;
+
 export default function LocationPage() {
-  const locationLinks = buildLocationLinks("Bishops Waltham");
-  const heroImage = { src: "/images/location6-image1.jpeg", alt: "Medium hire van on a quiet country road near Bishops Waltham" };
-  const supportImage = { src: "/images/location6-image2.jpeg", alt: "Customer planning a route beside a hire vehicle near Bishops Waltham" };
+  const locationLinks = buildLocationLinks("Botley");
+  const heroImage = { src: "/images/location6-image1.jpeg", alt: "Rental van on a road near Botley village centre in Hampshire" };
+  const supportImage = { src: "/images/location6-image2.jpeg", alt: "Hire vehicle travelling along a local route near Botley with countryside surroundings" };
   const faqs = [
-    { question: "Can you deliver a hire vehicle to Bishops Waltham?", answer: "Yes, subject to booking arrangements, we can help with delivery and collection in Bishops Waltham." },
-    { question: "Do you hire to both personal and business customers?", answer: "Yes, we provide self-drive options for private customers and businesses." },
-    { question: "What kind of vehicle can I book in Bishops Waltham?", answer: "We can help with vans, cars, minibuses and trucks depending on the purpose of the hire." },
-    { question: "Can I arrange a longer-term hire?", answer: "Yes, longer rentals may be possible, depending on the vehicle and availability at the time." },
-    { question: "What documents are needed to hire a vehicle?", answer: "A standard licence is usually needed, along with identification and any booking details requested at the time of hire." },
+    { question: "What vehicles can I hire in Botley?", answer: "Yes, Botley customers can book from a range of vehicle types including vans, cars, minibuses and trucks, subject to availability." },
+    { question: "Can I hire a vehicle in Botley for more than a few days?", answer: "That depends on the category, but flexible hire lengths are available for both shorter and longer requirements." },
+    { question: "Is Botley vehicle hire suitable for both personal and business use?", answer: "Yes, many bookings are for home moves, deliveries, business support, events and general self-drive transport." },
+    { question: "How do I know which hire vehicle is right for my trip?", answer: "If you are carrying goods, travelling with passengers or heading onto faster routes, we can help you choose a practical option." },
+    { question: "Do you offer delivery or collection around Botley?", answer: "Delivery and collection may be available depending on the booking and area, so it is worth checking when arranging your rental." },
   ];
   const trustCards = [
-    { title: "Well-kept hire vehicles", description: "Vehicles are prepared for hire with reliability and day-to-day usability in mind.", icon: ShieldCheck },
-    { title: "Hire that fits the job", description: "From one-off trips to longer bookings, we keep rental arrangements practical and flexible.", icon: Star },
-    { title: "Helpful local support", description: "We support customers with sensible booking guidance and convenient service options.", icon: Users },
+    { title: "Prepared for the road", description: "Vehicles are kept ready for real hire use, from local village driving to motorway and business travel.", icon: ShieldCheck },
+    { title: "Flexible for different needs", description: "Useful for private customers, growing businesses, temporary transport gaps and planned group journeys.", icon: Star },
+    { title: "Straightforward service", description: "Booking support stays clear and practical so you can choose the right vehicle without wasting time.", icon: Users },
   ];
   const featureStats = [
-    { value: "Car Hire", label: "Van hire for moves, bulky collections, trade tasks and day-to-day transport jobs." },
-    { value: "Van Hire", label: "Car hire for local trips, business travel and temporary replacement use." },
-    { value: "Minibus Hire", label: "Minibus hire for group outings, events and shared journeys across Hampshire." },
-    { value: "Truck Hire", label: "Truck hire for larger loads, heavier equipment and more demanding jobs." },
+    { value: "Car Hire", label: "Vans for local moves, storage runs and trade work." },
+    { value: "Van Hire", label: "Cars for flexible day-to-day travel and longer drives." },
+    { value: "Minibus Hire", label: "Minibuses for group outings, sports travel and events." },
+    { value: "Truck Hire", label: "Trucks for larger loads and heavier transport requirements." },
   ];
   const vehicleCards = [
     { src: "/images/smallvan1.jpg", alt: "Small van hire vehicle", title: "Small Vans" },
@@ -52,9 +60,9 @@ export default function LocationPage() {
     { src: "/images/7.5tonnecurtainsidehire.jpg", alt: "7.5 tonne curtainside truck hire vehicle", title: "Truck Hire" },
   ];
   const benefits = [
-    { icon: BadgePoundSterling, title: "Broad vehicle choice", description: "Choose a vehicle that suits the load, trip length and type of travel you actually have planned.", detail: "That helps whether you are moving locally, carrying stock, organising group travel or covering temporary transport needs." },
-    { icon: Clock3, title: "Flexible rental periods", description: "Hire periods can be arranged around short-term jobs, planned projects or longer use.", detail: "It is a practical option for customers who do not want to commit to more time than they need." },
-    { icon: CheckCircle2, title: "Straightforward service", description: "Support with delivery, collection and booking guidance helps keep things manageable.", detail: "That is especially useful when planning around work schedules, moving dates or coordinated collections." },
+    { icon: BadgePoundSterling, title: "Match the vehicle to the task", description: "A suitable vehicle helps you avoid multiple journeys and keeps loading, travel or passenger plans more manageable.", detail: "Ideal for moves, collections, events and everyday transport needs." },
+    { icon: Clock3, title: "Hire for the right length of time", description: "Flexible hire periods make it easier to book for a single job, a busy week or a longer requirement.", detail: "Practical options for short notice and forward planning." },
+    { icon: CheckCircle2, title: "Keep the process simple", description: "Support from a straightforward rental team helps you choose sensibly and avoid overcomplicating the booking.", detail: "Clear advice on category choice, timing and likely usage." },
   ];
 
   return (
@@ -103,8 +111,8 @@ export default function LocationPage() {
           <div className="relative z-10 grid gap-12 lg:grid-cols-[1fr_420px] lg:items-center">
             <div className="max-w-3xl">
               <div className="flex flex-col gap-6">
-                <h1 className="text-5xl font-bold tracking-tight">{"Vehicle Hire in Bishops Waltham"}</h1>
-                <p className="text-xl text-white">{"Self-drive van, car, minibus and truck hire for Bishops Waltham, backed by flexible booking and dependable local support."}</p>
+                <h1 className="text-5xl font-bold tracking-tight">{"Vehicle Hire in Botley"}</h1>
+                <p className="text-xl text-white">{"Straightforward self-drive hire in Botley for vans, cars, minibuses and trucks, with flexible booking for local jobs, longer journeys and business use."}</p>
                 <Button size="lg" className="w-fit bg-[#00B395] text-white hover:bg-[#00997f]" asChild>
                   <a href={phoneHref}>Book Now</a>
                 </Button>
@@ -127,18 +135,18 @@ export default function LocationPage() {
               <div className="max-w-2xl">
                 <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#00B395]/25 bg-white px-3 py-1 text-sm font-medium text-[#00B395]">
                   <PhoneCall className="h-4 w-4" />
-                  {"Easy to arrange hire"}
+                  {"Straightforward local booking"}
                 </div>
-                <h2 className="text-2xl font-bold tracking-tight text-slate-950 md:text-3xl">{"Book a vehicle for Bishops Waltham with confidence"}</h2>
-                <p className="mt-3 text-base leading-7 text-slate-600">{"Hiring in Bishops Waltham should be simple. We help you book the right vehicle for the job, explain the practical details clearly, and arrange a hire period that suits your plans."}</p>
+                <h2 className="text-2xl font-bold tracking-tight text-slate-950 md:text-3xl">{"Book the right vehicle for Botley"}</h2>
+                <p className="mt-3 text-base leading-7 text-slate-600">{"From Botley village journeys to wider trips across Hampshire, we make it easier to arrange a suitable self-drive vehicle without unnecessary hassle."}</p>
                 <div className="mt-5 flex flex-wrap gap-3 text-sm text-slate-600">
                   <div className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-sm">
                     <PhoneCall className="h-4 w-4 text-[#00B395]" />
-                    {"Maintained self-drive fleet"}
+                    {"Flexible rental periods"}
                   </div>
                   <div className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-sm">
                     <Clock3 className="h-4 w-4 text-[#00B395]" />
-                    {"Flexible terms available"}
+                    {"Well-maintained vehicles"}
                   </div>
                 </div>
               </div>
@@ -153,8 +161,8 @@ export default function LocationPage() {
       <section id="trust" className="px-6 py-16">
         <div className="mx-auto max-w-6xl">
           <div className="mb-12 text-center">
-            <h2 className="mb-4 text-4xl font-bold">{"A practical hire service for Bishops Waltham"}</h2>
-            <p className="text-lg text-muted-foreground">{"Bishops Waltham customers usually want a straightforward service, suitable vehicles and booking terms that reflect real transport needs. That is the kind of service we focus on."}</p>
+            <h2 className="mb-4 text-4xl font-bold">{"Why Botley customers book with us"}</h2>
+            <p className="text-lg text-muted-foreground">{"Customers in Botley value reliable vehicle choice, sensible hire options and a service built around everyday transport needs."}</p>
           </div>
           <div className="grid gap-8 md:grid-cols-3 md:auto-rows-fr">
             {trustCards.map((item) => (
@@ -173,9 +181,9 @@ export default function LocationPage() {
       <section className="bg-white px-6 py-20 text-slate-950">
         <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div>
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"What you can hire"}</p>
-            <h2 className="max-w-2xl text-4xl font-bold tracking-tight md:text-5xl">{"A full vehicle range for Bishops Waltham customers"}</h2>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">{"We offer a practical spread of vehicle types for customers in and around Bishops Waltham, whether the hire is personal, commercial or event-related."}</p>
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Vehicle categories"}</p>
+            <h2 className="max-w-2xl text-4xl font-bold tracking-tight md:text-5xl">{"Hire options available in Botley"}</h2>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">{"Botley customers can choose from a broad fleet designed to cover practical transport needs across personal and commercial hire."}</p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Button size="lg" className="bg-[#00B395] text-white hover:bg-[#00997f]" asChild>
                 <a href={phoneHref}>No Hassle Booking {phoneDisplay}</a>
@@ -195,13 +203,13 @@ export default function LocationPage() {
 
       <section className="bg-white px-6 py-20">
         <div className="mx-auto max-w-5xl text-center">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Local hire support"}</p>
-          <h2 className="mx-auto max-w-3xl text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Vehicle hire that suits Bishops Waltham travel"}</h2>
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Local service"}</p>
+          <h2 className="mx-auto max-w-3xl text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Vehicle hire that suits Botley travel"}</h2>
           <div className="mx-auto mt-8 max-w-3xl space-y-6 text-lg leading-8 text-slate-600">
-            <p>{"Bishops Waltham is well placed for travel across Hampshire, which means customers often need vehicles for a wide mix of jobs. Some are moving home, some are collecting furniture or materials, and others need reliable transport for business use."}</p>
-            <p>{"Southern Van Hire offers vans, cars, minibuses and trucks so you can match the booking to the journey rather than compromise with whatever happens to be available elsewhere."}</p>
-            <p>{"We focus on practical service. That means maintained vehicles, flexible rental options and support that keeps the booking process clear from the start."}</p>
-            <p>{"For Bishops Waltham customers, that creates a useful local option for rural collections, town-based jobs, motorway-connected trips and wider transport needs across the South."}</p>
+            <p>{"Botley customers often need a hire vehicle that can handle both village access and longer trips across the region. We provide practical self-drive options for moving house, business transport, furniture collection, event support and general day-to-day travel."}</p>
+            <p>{"Because Botley sits between key routes towards Southampton, Eastleigh and Fareham, many hires need flexibility rather than a one-size-fits-all rental. That is why we offer a broad mix of vans, cars, minibuses and trucks to suit different jobs and journey lengths."}</p>
+            <p>{"For business customers around Botley, a rental vehicle can help cover busy periods, staff travel, delivery work or temporary fleet gaps. For private customers, it is often the easiest option for home moves, tip runs, furniture pickup and event travel."}</p>
+            <p>{"Hiring in Botley should feel straightforward. We aim to keep the service clear from the first enquiry to the return of the vehicle, with well-maintained vehicles and practical guidance that helps you choose something suitable without overcomplicating the booking."}</p>
           </div>
         </div>
       </section>
@@ -210,9 +218,9 @@ export default function LocationPage() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(0,179,149,0.14),_transparent_55%)] pointer-events-none" />
         <div className="mx-auto max-w-6xl">
           <div className="mx-auto mb-14 max-w-3xl text-center">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Why it works"}</p>
-            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Useful advantages for Bishops Waltham bookings"}</h2>
-            <p className="mt-5 text-lg leading-8 text-slate-600">{"Three practical reasons many customers choose to hire through Southern Van Hire in Bishops Waltham."}</p>
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Why it helps"}</p>
+            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Benefits of hiring in Botley"}</h2>
+            <p className="mt-5 text-lg leading-8 text-slate-600">{"Useful advantages for customers booking vehicle hire in Botley, whether the need is personal, business or somewhere in between."}</p>
           </div>
           <div className="grid gap-8 md:grid-cols-3">
             {benefits.map((item) => (
@@ -254,8 +262,8 @@ export default function LocationPage() {
         <div className="mx-auto max-w-5xl">
           <div className="mx-auto max-w-3xl text-center">
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Nearby Locations"}</p>
-            <h2 className="text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">{"Nearby places we cover from Bishops Waltham"}</h2>
-            <p className="mt-4 text-lg leading-8 text-slate-600">{"We also serve surrounding Hampshire locations, which can be useful if you are comparing pickup points around the Bishops Waltham area."}</p>
+            <h2 className="text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">{"Areas served around Botley"}</h2>
+            <p className="mt-4 text-lg leading-8 text-slate-600">{"We also cover surrounding areas near Botley, making it easier to find a practical pickup or delivery option across this part of Hampshire."}</p>
           </div>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             {locationLinks.map((location) => (
@@ -266,16 +274,16 @@ export default function LocationPage() {
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
-              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"Options for small and large transport needs"}</h3>
-              <p className="mt-3 text-base leading-7 text-slate-600">{"Whether you need a compact car, a roomy van, a group vehicle or a larger truck, we help match the hire vehicle to the task."}</p>
+              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"Options for different journeys"}</h3>
+              <p className="mt-3 text-base leading-7 text-slate-600">{"A wide vehicle range means you can book for passengers, goods, work use or one-off practical jobs without settling for the wrong fit."}</p>
             </div>
             <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
-              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"Suitable for personal and commercial use"}</h3>
-              <p className="mt-3 text-base leading-7 text-slate-600">{"A hire vehicle can be arranged for home use, business support, event travel or temporary transport cover."}</p>
+              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"Flexible booking periods"}</h3>
+              <p className="mt-3 text-base leading-7 text-slate-600">{"Short and longer hire periods help you plan around moving dates, project schedules, events or temporary transport needs."}</p>
             </div>
             <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
-              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"Clear booking from the outset"}</h3>
-              <p className="mt-3 text-base leading-7 text-slate-600">{"We aim to make the process clear, from choosing the vehicle to arranging collection or delivery."}</p>
+              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"Service you can rely on"}</h3>
+              <p className="mt-3 text-base leading-7 text-slate-600">{"Dependable customer support and maintained hire vehicles help keep your booking straightforward from start to finish."}</p>
             </div>
           </div>
         </div>
@@ -285,14 +293,14 @@ export default function LocationPage() {
         <div className="mx-auto max-w-5xl">
           <div className="mx-auto max-w-3xl text-center">
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Local Guide"}</p>
-            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Driving and hire tips for Bishops Waltham"}</h2>
-            <p className="mt-5 text-lg leading-8 text-slate-600">{"Useful local driving notes for hiring a vehicle in and around Bishops Waltham, with practical tips for routes, loading and onward travel."}</p>
+            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Driving and route tips for Botley"}</h2>
+            <p className="mt-5 text-lg leading-8 text-slate-600">{"Useful local driving notes for collecting and using a hire vehicle in and around Botley."}</p>
           </div>
           <div className="mx-auto mt-12 max-w-4xl space-y-6 text-left">
-            <p className="text-base leading-8 text-slate-600">{"Bishops Waltham works well as a starting point for local and regional vehicle hire because you can get out quickly onto the surrounding Hampshire route network without dealing with the heavier traffic of the city centre. If you are collecting a van, car, minibus or truck for a move, delivery run or family trip, it helps to plan your loading time around the quieter parts of the day through the town centre roads."}</p>
-            <p className="text-base leading-8 text-slate-600">{"For home moves and furniture collection, many drivers use a hire vehicle here for straightforward trips between village properties, newer housing areas and nearby storage or retail destinations in the wider Southampton area. Roads in and around Bishops Waltham can narrow in places, so choosing the right size vehicle matters, especially if you are parking near homes or loading from smaller drives."}</p>
-            <p className="text-base leading-8 text-slate-600">{"If you are travelling further afield, Bishops Waltham gives you a practical base for heading towards Southampton, Winchester and the rest of South Hampshire. That makes it useful for business users needing a temporary vehicle, trades needing extra carrying space, or groups arranging self-drive transport for events, weekend travel or airport-linked journeys."}</p>
-            <p className="text-base leading-8 text-slate-600">{"Before setting off, it is worth checking your route, allowing for school traffic and giving yourself extra time for reversing or turning if you are not used to a larger vehicle. A well-chosen hire vehicle can make local jobs much easier here, whether you need something compact for light transport or more space for larger loads and longer trips."}</p>
+            <p className="text-base leading-8 text-slate-600">{"Botley works well as a pickup point for local and longer-distance trips, with straightforward access into the wider Eastleigh and Southampton area. If you are collecting a hire vehicle for a house move, trade run or business delivery, it helps to plan around the busiest school-run and commuter periods so village roads are easier to manage."}</p>
+            <p className="text-base leading-8 text-slate-600">{"Drivers using a larger van, minibus or truck from Botley usually benefit from checking their route before setting off, especially where the journey begins on narrower local roads. Once clear of the immediate centre, connections into the wider road network are practical for heading towards nearby residential areas, business sites and onward regional routes."}</p>
+            <p className="text-base leading-8 text-slate-600">{"For fuel, refreshments or a short pause before a longer journey, a nearby service stop can be useful, and Broad Oak Service Station is close at hand. That makes it a sensible option for topping up, grabbing essentials or taking a moment to check the load and mirrors before continuing."}</p>
+            <p className="text-base leading-8 text-slate-600">{"Botley is a practical base for furniture collection, self-drive moving jobs, event transport and day-to-day business use. If you are hiring for multiple stops, it is worth allowing extra time for residential parking, loading access and turning space so the vehicle is easier to handle throughout the day."}</p>
           </div>
         </div>
       </section>
@@ -301,8 +309,8 @@ export default function LocationPage() {
         <div className="mx-auto max-w-4xl">
           <div className="mb-12 text-center">
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Helpful answers"}</p>
-            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Bishops Waltham vehicle hire FAQs"}</h2>
-            <p className="mt-4 text-lg leading-8 text-slate-600">{"Answers to common questions about booking self-drive vehicle hire in Bishops Waltham."}</p>
+            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Botley vehicle hire FAQs"}</h2>
+            <p className="mt-4 text-lg leading-8 text-slate-600">{"Common questions from customers arranging self-drive vehicle hire in Botley and nearby villages."}</p>
           </div>
           <div className="rounded-3xl border border-slate-200 bg-slate-50 px-6 shadow-sm">
             {faqs.map((item, index) => (
@@ -320,8 +328,8 @@ export default function LocationPage() {
 
       <section className="bg-[#00B395] px-6 py-16 text-center text-white">
         <div className="mx-auto max-w-2xl">
-          <h2 className="mb-4 text-4xl font-bold">{"Need vehicle hire in Bishops Waltham?"}</h2>
-          <p className="mb-8 text-lg text-white/85">{"Tell us what you need to move, where you are travelling, and how long you need the vehicle, and we will help you book a suitable hire option."}</p>
+          <h2 className="mb-4 text-4xl font-bold">{"Arrange your Botley hire vehicle"}</h2>
+          <p className="mb-8 text-lg text-white/85">{"Speak to a practical rental team about the vehicle category, timing and hire length that best suits your plans in Botley."}</p>
           <Button size="lg" className="bg-white text-[#00B395] hover:bg-gray-100" asChild>
             <a href={phoneHref}>Book Now</a>
           </Button>

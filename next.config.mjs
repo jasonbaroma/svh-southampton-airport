@@ -3,12 +3,12 @@ import { fileURLToPath } from "node:url";
 
 const templateRoot = path.dirname(fileURLToPath(import.meta.url));
 const locationNames = [
-  "Eastleigh",
+  "Bursledon",
+  "Hamble-le-Rice",
+  "Marchwood",
   "Hedge End",
-  "Romsey",
-  "Hythe",
   "Netley",
-  "Bishops Waltham",
+  "Botley",
 ];
 
 function slugifyLocation(value) {

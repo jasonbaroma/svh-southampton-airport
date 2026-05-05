@@ -6,12 +6,12 @@ export const mainLocationLink = {
 };
 
 const LOCATION_NAMES = [
-  "Eastleigh",
+  "Bursledon",
+  "Hamble-le-Rice",
+  "Marchwood",
   "Hedge End",
-  "Romsey",
-  "Hythe",
   "Netley",
-  "Bishops Waltham",
+  "Botley",
 ] as const;
 
 export const nearbyLocationLinks = LOCATION_NAMES.map((label) => ({

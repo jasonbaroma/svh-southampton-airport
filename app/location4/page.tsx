@@ -1,5 +1,6 @@
 ﻿"use client";
 
+import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Image from "next/image";
@@ -7,6 +8,7 @@ import Link from "next/link";
 import { mainLocationName } from "@/lib/company";
 import { phoneDisplay, phoneHref } from "@/lib/contact";
 import { buildLocationLinks } from "@/lib/location-links";
+import { slugifyLocation } from "@/lib/utils";
 import {
   BadgePoundSterling,
   CheckCircle2,
@@ -19,27 +21,33 @@ import {
   Users,
 } from "lucide-react";
 
+export const metadata = {
+  alternates: {
+    canonical: `/${slugifyLocation("Hedge End")}`,
+  },
+} satisfies Metadata;
+
 export default function LocationPage() {
-  const locationLinks = buildLocationLinks("Hythe");
-  const heroImage = { src: "/images/location4-image1.jpeg", alt: "Panel van parked near a waterside road in Hythe" };
-  const supportImage = { src: "/images/location4-image2.jpeg", alt: "People loading bags into a hire car in a tidy parking area in Hythe" };
+  const locationLinks = buildLocationLinks("Hedge End");
+  const heroImage = { src: "/images/location4-image1.jpeg", alt: "Hire van on a main road near Hedge End" };
+  const supportImage = { src: "/images/location4-image2.jpeg", alt: "Rental vehicle near retail and business routes in Hedge End" };
   const faqs = [
-    { question: "Can I hire a vehicle for Hamble marina-related trips?", answer: "Yes, many customers book around marina use, events, equipment transport and general local travel." },
-    { question: "What vehicles can I book in Hamble-le-Rice?", answer: "Cars, vans, minibuses and trucks are available, subject to booking details and suitability for the job." },
-    { question: "Do you offer delivery in Hamble-le-Rice?", answer: "Yes, delivery and collection can help if you want the hire arranged more conveniently around the village." },
-    { question: "Is your Hamble-le-Rice service suitable for business users?", answer: "Yes, we support both personal and business hire, including short-term transport needs and longer bookings." },
-    { question: "How do I choose the right hire vehicle?", answer: "It is best to think about passenger numbers, load size, route type and how long you need the vehicle for." },
+    { question: "Can I book short or longer vehicle hire in Romsey?", answer: "Yes, we can often arrange short-term and longer bookings in Romsey depending on the vehicle required." },
+    { question: "What vehicles are available for hire around Romsey?", answer: "We offer cars, vans, minibuses and trucks for a range of personal and business transport needs." },
+    { question: "What do people usually hire vehicles for in Romsey?", answer: "Many customers hire for home moves, furniture pickup, local deliveries, exhibitions and temporary business cover." },
+    { question: "Do you offer delivery and collection in the Romsey area?", answer: "Yes, delivery and collection can often be arranged to make the booking more convenient." },
+    { question: "Are licence requirements the same for every vehicle?", answer: "Requirements vary by vehicle type and driver details, so it is best to confirm that at the time of booking." },
   ];
   const trustCards = [
-    { title: "Service-led support", description: "Vehicle hire backed by practical advice and a focus on what customers actually need.", icon: ShieldCheck },
-    { title: "Reliable vehicle preparation", description: "A maintained fleet helps keep local and longer journeys simple and dependable.", icon: Star },
-    { title: "Broad hire capability", description: "Suitable for domestic bookings, group travel and business use across a range of vehicle types.", icon: Users },
+    { title: "Vehicle choice that makes sense", description: "A broad fleet helps us support anything from simple local errands to more demanding transport work.", icon: ShieldCheck },
+    { title: "Straightforward customer service", description: "Our service is designed to be practical and clear, with less unnecessary admin and more useful support.", icon: Star },
+    { title: "Convenient local hire", description: "Flexible booking and convenient delivery options help customers fit hire around real schedules.", icon: Users },
   ];
   const featureStats = [
-    { value: "Car Hire", label: "Cars for convenient day-to-day driving and business travel." },
-    { value: "Van Hire", label: "Vans for moving items, collecting supplies and handling practical jobs." },
-    { value: "Minibus Hire", label: "Minibuses for group journeys, event transport and shared outings." },
-    { value: "Truck Hire", label: "Trucks for bigger loads that need extra carrying space." },
+    { value: "Car Hire", label: "Cars for everyday driving, appointments and business travel." },
+    { value: "Van Hire", label: "Vans for removals, collections, deliveries and trade use." },
+    { value: "Minibus Hire", label: "Minibuses for organised group trips and shared travel." },
+    { value: "Truck Hire", label: "Trucks for larger loads and commercial transport jobs." },
   ];
   const vehicleCards = [
     { src: "/images/smallvan1.jpg", alt: "Small van hire vehicle", title: "Small Vans" },
@@ -52,9 +60,9 @@ export default function LocationPage() {
     { src: "/images/7.5tonnecurtainsidehire.jpg", alt: "7.5 tonne curtainside truck hire vehicle", title: "Truck Hire" },
   ];
   const benefits = [
-    { icon: BadgePoundSterling, title: "Choice that suits the task", description: "A broad fleet makes it easier to book exactly what the journey or job requires.", detail: "Useful whether you need a small car for local travel or more space for cargo, passengers or equipment." },
-    { icon: Clock3, title: "Book around your schedule", description: "Flexible hire periods help with weekend plans, weekday work and longer bookings.", detail: "That can be helpful for marina-related travel, event logistics, temporary business demand or house moves." },
-    { icon: CheckCircle2, title: "Convenient local support", description: "Free delivery and collection keeps things convenient for customers in and around Hamble-le-Rice.", detail: "A useful option when parking is limited or you want to avoid an extra collection trip." },
+    { icon: BadgePoundSterling, title: "The right vehicle available", description: "Get a suitable vehicle for moving, travel, delivery work or heavier jobs without overcomplicating the process.", detail: "We cover cars, vans, minibuses and trucks so the hire can suit the load, route and number of passengers involved." },
+    { icon: Clock3, title: "Useful rental flexibility", description: "Flexible booking options help if you need transport for a day, a weekend, a work project or a longer period.", detail: "That is useful for home moves, temporary cover, exhibitions, trade work and seasonal business demand." },
+    { icon: CheckCircle2, title: "Less stress on the day", description: "Good preparation and clear arrangements can save time when you have a busy schedule to work around.", detail: "We keep the service practical, with maintained vehicles and support that helps you get on the road with less hassle." },
   ];
 
   return (
@@ -103,8 +111,8 @@ export default function LocationPage() {
           <div className="relative z-10 grid gap-12 lg:grid-cols-[1fr_420px] lg:items-center">
             <div className="max-w-3xl">
               <div className="flex flex-col gap-6">
-                <h1 className="text-5xl font-bold tracking-tight">{"Convenient vehicle hire in Hythe"}</h1>
-                <p className="text-xl text-white">{"Practical self-drive cars, vans, minibuses and trucks for local travel, moving jobs, marina-related trips and business use."}</p>
+                <h1 className="text-5xl font-bold tracking-tight">{"Vehicle hire in Hedge End that works around you"}</h1>
+                <p className="text-xl text-white">{"Self-drive van, car, minibus and truck hire in Hedge End, with flexible booking, maintained vehicles and practical support for local and longer trips."}</p>
                 <Button size="lg" className="w-fit bg-[#00B395] text-white hover:bg-[#00997f]" asChild>
                   <a href={phoneHref}>Book Now</a>
                 </Button>
@@ -127,10 +135,10 @@ export default function LocationPage() {
               <div className="max-w-2xl">
                 <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#00B395]/25 bg-white px-3 py-1 text-sm font-medium text-[#00B395]">
                   <PhoneCall className="h-4 w-4" />
-                  {"Helpful hire, simply arranged"}
+                  {"Simple Romsey bookings"}
                 </div>
-                <h2 className="text-2xl font-bold tracking-tight text-slate-950 md:text-3xl">{"Book vehicle hire for Hamble-le-Rice"}</h2>
-                <p className="mt-3 text-base leading-7 text-slate-600">{"If you need a vehicle in Hamble-le-Rice, we keep the process practical. From cars for everyday use to vans, minibuses and trucks for bigger jobs, bookings can be arranged with clear advice and flexible timing."}</p>
+                <h2 className="text-2xl font-bold tracking-tight text-slate-950 md:text-3xl">{"Easy vehicle hire for Hedge End"}</h2>
+                <p className="mt-3 text-base leading-7 text-slate-600">{"Arranging vehicle hire in Hedge End should be simple. We help local customers book vans, cars, minibuses and trucks for everything from weekend jobs to business cover and longer-distance travel."}</p>
                 <div className="mt-5 flex flex-wrap gap-3 text-sm text-slate-600">
                   <div className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-sm">
                     <PhoneCall className="h-4 w-4 text-[#00B395]" />
@@ -138,7 +146,7 @@ export default function LocationPage() {
                   </div>
                   <div className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-sm">
                     <Clock3 className="h-4 w-4 text-[#00B395]" />
-                    {"Support for personal and business hire"}
+                    {"Free delivery and collection"}
                   </div>
                 </div>
               </div>
@@ -153,8 +161,8 @@ export default function LocationPage() {
       <section id="trust" className="px-6 py-16">
         <div className="mx-auto max-w-6xl">
           <div className="mb-12 text-center">
-            <h2 className="mb-4 text-4xl font-bold">{"Trusted local vehicle hire"}</h2>
-            <p className="text-lg text-muted-foreground">{"Customers booking in Hamble-le-Rice want convenience, flexibility and vehicles that are ready for real-world use. That is what we focus on."}</p>
+            <h2 className="mb-4 text-4xl font-bold">{"A trusted hire service for Hedge End"}</h2>
+            <p className="text-lg text-muted-foreground">{"Hedge End customers choose us for straightforward booking, maintained vehicles and practical support that suits busy households and local businesses alike."}</p>
           </div>
           <div className="grid gap-8 md:grid-cols-3 md:auto-rows-fr">
             {trustCards.map((item) => (
@@ -173,9 +181,9 @@ export default function LocationPage() {
       <section className="bg-white px-6 py-20 text-slate-950">
         <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div>
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Vehicle options"}</p>
-            <h2 className="max-w-2xl text-4xl font-bold tracking-tight md:text-5xl">{"The right hire vehicle for the journey"}</h2>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">{"Our Hamble-le-Rice vehicle hire service covers a wide range of needs, from everyday travel to larger transport tasks."}</p>
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Vehicle types"}</p>
+            <h2 className="max-w-2xl text-4xl font-bold tracking-tight md:text-5xl">{"Hire options available in Hedge End"}</h2>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">{"Our Hedge End fleet support covers a broad range of self-drive needs, from everyday transport and local moving jobs to larger commercial requirements."}</p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Button size="lg" className="bg-[#00B395] text-white hover:bg-[#00997f]" asChild>
                 <a href={phoneHref}>No Hassle Booking {phoneDisplay}</a>
@@ -195,13 +203,13 @@ export default function LocationPage() {
 
       <section className="bg-white px-6 py-20">
         <div className="mx-auto max-w-5xl text-center">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Local hire made practical"}</p>
-          <h2 className="mx-auto max-w-3xl text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Self-drive vehicle hire that fits Hamble-le-Rice"}</h2>
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Local hire support"}</p>
+          <h2 className="mx-auto max-w-3xl text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Practical rental support in Hedge End"}</h2>
           <div className="mx-auto mt-8 max-w-3xl space-y-6 text-lg leading-8 text-slate-600">
-            <p>{"Hamble-le-Rice has its own transport pattern, with marina activity, village roads and steady travel toward Southampton, Bursledon and the wider motorway network. Hiring the right vehicle can make a big difference when space, timing and access all matter."}</p>
-            <p>{"Some customers need a van for collecting furniture or moving equipment, while others want a car for flexible local travel or a minibus for a group journey. We also provide trucks for larger transport tasks where extra carrying capacity is needed."}</p>
-            <p>{"Our approach is service-led and straightforward. Vehicles are maintained, rental terms are flexible and support is available for both personal and business bookings, helping you avoid unnecessary hassle."}</p>
-            <p>{"Whether you are planning around village access, marina timings or a wider journey across Hampshire, we focus on providing a suitable self-drive vehicle with a smooth booking experience from start to finish."}</p>
+            <p>{"Southern Van Hire offers practical vehicle rental for Hedge End, helping customers handle moving jobs, collections, commercial transport and general travel without unnecessary hassle. Our range covers smaller and larger requirements, so you can choose what suits the day properly."}</p>
+            <p>{"Hedge End is a busy and well-connected area, with quick access towards the M27, Southampton and surrounding business parks. That makes it a common base for customers who need short-term transport for local deliveries, retail collection, trade work or temporary fleet support."}</p>
+            <p>{"Van hire remains a key service in Hedge End, especially for house moves, equipment runs and bulky items. We also provide cars for personal journeys, minibuses for group travel and trucks for larger commercial tasks where extra carrying capacity is needed."}</p>
+            <p>{"The aim is to keep everything straightforward: maintained vehicles, clear booking arrangements and flexible hire periods that work for both personal and business use in Hedge End."}</p>
           </div>
         </div>
       </section>
@@ -210,9 +218,9 @@ export default function LocationPage() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(0,179,149,0.14),_transparent_55%)] pointer-events-none" />
         <div className="mx-auto max-w-6xl">
           <div className="mx-auto mb-14 max-w-3xl text-center">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Practical advantages"}</p>
-            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Why hire with us in Hamble-le-Rice"}</h2>
-            <p className="mt-5 text-lg leading-8 text-slate-600">{"Straightforward advantages for customers booking vehicle hire in Hamble-le-Rice."}</p>
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Helpful reasons to book"}</p>
+            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Why Hedge End drivers hire with us"}</h2>
+            <p className="mt-5 text-lg leading-8 text-slate-600">{"Hedge End customers often want quick, practical access to a suitable rental vehicle for home, work or business transport. We focus on flexible booking, useful vehicle choice and service that fits around busy local schedules."}</p>
           </div>
           <div className="grid gap-8 md:grid-cols-3">
             {benefits.map((item) => (
@@ -254,8 +262,8 @@ export default function LocationPage() {
         <div className="mx-auto max-w-5xl">
           <div className="mx-auto max-w-3xl text-center">
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Nearby Locations"}</p>
-            <h2 className="text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">{"Nearby places to Hamble-le-Rice"}</h2>
-            <p className="mt-4 text-lg leading-8 text-slate-600">{"We support Hamble-le-Rice and other nearby places around the lower River Hamble and surrounding Southampton area."}</p>
+            <h2 className="text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">{"Nearby vehicle hire areas to Hedge End"}</h2>
+            <p className="mt-4 text-lg leading-8 text-slate-600">{"If you are booking from Hedge End, you may also want to look at nearby service areas for surrounding villages and smaller communities linked by the same road network."}</p>
           </div>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             {locationLinks.map((location) => (
@@ -266,16 +274,16 @@ export default function LocationPage() {
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
-              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"Suitable for different journeys"}</h3>
-              <p className="mt-3 text-base leading-7 text-slate-600">{"Vehicle choices are available for daily driving, group travel, cargo transport and larger commercial tasks."}</p>
+              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"Vehicles for Everyday Use"}</h3>
+              <p className="mt-3 text-base leading-7 text-slate-600">{"Our fleet gives customers a practical choice of rental vehicles for moving, travelling, delivering goods or handling larger transport tasks."}</p>
             </div>
             <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
-              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"Easy to organise"}</h3>
-              <p className="mt-3 text-base leading-7 text-slate-600">{"A clear booking process helps you arrange transport without unnecessary delays or confusion."}</p>
+              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"Prepared and Dependable"}</h3>
+              <p className="mt-3 text-base leading-7 text-slate-600">{"We aim to provide well maintained hire vehicles that are ready for regular self-drive use across local and longer-distance routes."}</p>
             </div>
             <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
-              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"Prepared with reliability in mind"}</h3>
-              <p className="mt-3 text-base leading-7 text-slate-600">{"Maintained hire vehicles help keep your plans on track whether you are staying local or travelling further."}</p>
+              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"Simple to Arrange"}</h3>
+              <p className="mt-3 text-base leading-7 text-slate-600">{"From first enquiry to return, the focus is on keeping the hire process clear, flexible and easy to manage."}</p>
             </div>
           </div>
         </div>
@@ -285,14 +293,14 @@ export default function LocationPage() {
         <div className="mx-auto max-w-5xl">
           <div className="mx-auto max-w-3xl text-center">
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Local Guide"}</p>
-            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Driving and route tips for Hythe"}</h2>
-            <p className="mt-5 text-lg leading-8 text-slate-600">{"Useful local driving notes for getting around Hythe in a hire vehicle with less hassle."}</p>
+            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Driving Around Hedge End"}</h2>
+            <p className="mt-5 text-lg leading-8 text-slate-600">{"Useful driving pointers for hiring in Hedge End, from timing your journey well to planning fuel and stops before setting off."}</p>
           </div>
           <div className="mx-auto mt-12 max-w-4xl space-y-6 text-left">
-            <p className="text-base leading-8 text-slate-600">{"Hiring a vehicle in Hythe often means planning around local high street traffic, waterfront roads and short links in and out of the town. If you are collecting furniture, doing a house move or making business deliveries, it helps to allow extra time for tighter residential streets and busier periods near the centre."}</p>
-            <p className="text-base leading-8 text-slate-600">{"For longer trips, most drivers use the main local routes out of Hythe before joining wider corridors towards Southampton and the surrounding area. That makes early route planning worthwhile if you are in a larger van, minibus or truck, especially when you want to avoid unnecessary turns through older streets or seafront traffic."}</p>
-            <p className="text-base leading-8 text-slate-600">{"If you need to refuel before returning your hire vehicle, a nearby option is Sainsbury's Petrol Station Shop, which can be useful for topping up and picking up any last-minute travel essentials. It is a sensible stop to build into your return journey rather than leaving fuel planning until the final few minutes."}</p>
-            <p className="text-base leading-8 text-slate-600">{"Hythe is a practical base for short self-drive jobs, from local collections and storage runs to day hires for events or business transport. If you are heading out with a loaded vehicle, check your parking space at both ends of the journey, give yourself extra room for reversing, and choose the simplest route rather than the shortest one."}</p>
+            <p className="text-base leading-8 text-slate-600">{"Hedge End is a practical place to start a hire if you need quick access to the wider Eastleigh and Southampton area. The local road layout makes it useful for short collection runs, home moves, trade jobs and retail pickups, especially when you want to avoid heading straight into busier city-centre traffic."}</p>
+            <p className="text-base leading-8 text-slate-600">{"If you are driving a larger vehicle, it helps to plan your route before setting off and leave a little extra time around school-run and commuter periods. Main local routes can get busy at peak times, so an earlier collection or a quieter mid-morning departure often makes loading, parking and turning much easier."}</p>
+            <p className="text-base leading-8 text-slate-600">{"For longer trips, make sure fuel, sat nav and load security are sorted before you leave Hedge End. Broad Oak Service Station is a handy nearby stop for a quick pause, and it can be useful if you want to check directions, refreshments or basic travel essentials before joining the wider road network."}</p>
+            <p className="text-base leading-8 text-slate-600">{"Many customers hiring in Hedge End are travelling for house moves, furniture collection, business deliveries or family transport across Hampshire. Whether you are staying local or heading further afield, choosing the right size vehicle and keeping your route simple usually saves time and avoids unnecessary stress on the day."}</p>
           </div>
         </div>
       </section>
@@ -300,9 +308,9 @@ export default function LocationPage() {
       <section className="bg-white px-6 py-20">
         <div className="mx-auto max-w-4xl">
           <div className="mb-12 text-center">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Hamble-le-Rice FAQs"}</p>
-            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Common booking questions"}</h2>
-            <p className="mt-4 text-lg leading-8 text-slate-600">{"Useful answers for customers arranging self-drive hire in Hamble-le-Rice."}</p>
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Romsey vehicle hire help"}</p>
+            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Hedge End hire FAQs"}</h2>
+            <p className="mt-4 text-lg leading-8 text-slate-600">{"Helpful answers for customers planning vehicle hire in Hedge End, from choosing the right vehicle to understanding how bookings can work."}</p>
           </div>
           <div className="rounded-3xl border border-slate-200 bg-slate-50 px-6 shadow-sm">
             {faqs.map((item, index) => (
@@ -320,8 +328,8 @@ export default function LocationPage() {
 
       <section className="bg-[#00B395] px-6 py-16 text-center text-white">
         <div className="mx-auto max-w-2xl">
-          <h2 className="mb-4 text-4xl font-bold">{"Planning a hire in Hamble-le-Rice?"}</h2>
-          <p className="mb-8 text-lg text-white/85">{"Get practical help choosing the right car, van, minibus or truck for your Hamble-le-Rice booking."}</p>
+          <h2 className="mb-4 text-4xl font-bold">{"Arrange your Hedge End vehicle hire"}</h2>
+          <p className="mb-8 text-lg text-white/85">{"Looking for vehicle hire in Hedge End? We can help you arrange a suitable van, car, minibus or truck for a straightforward and practical booking."}</p>
           <Button size="lg" className="bg-white text-[#00B395] hover:bg-gray-100" asChild>
             <a href={phoneHref}>Book Now</a>
           </Button>

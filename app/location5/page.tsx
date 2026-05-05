@@ -1,5 +1,6 @@
 ﻿"use client";
 
+import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Image from "next/image";
@@ -7,6 +8,7 @@ import Link from "next/link";
 import { mainLocationName } from "@/lib/company";
 import { phoneDisplay, phoneHref } from "@/lib/contact";
 import { buildLocationLinks } from "@/lib/location-links";
+import { slugifyLocation } from "@/lib/utils";
 import {
   BadgePoundSterling,
   CheckCircle2,
@@ -19,27 +21,33 @@ import {
   Users,
 } from "lucide-react";
 
+export const metadata = {
+  alternates: {
+    canonical: `/${slugifyLocation("Netley")}`,
+  },
+} satisfies Metadata;
+
 export default function LocationPage() {
   const locationLinks = buildLocationLinks("Netley");
-  const heroImage = { src: "/images/location5-image1.jpeg", alt: "Estate hire car on a quiet coastal road in Netley" };
-  const supportImage = { src: "/images/location5-image2.jpeg", alt: "Customer collecting a clean hire van from a tidy pickup bay in Netley" };
+  const heroImage = { src: "/images/location5-image1.jpeg", alt: "Hire van parked near Netley shoreline with Southampton Water in the background" };
+  const supportImage = { src: "/images/location5-image2.jpeg", alt: "Rental vehicle on a local road near Netley village and Royal Victoria Country Park" };
   const faqs = [
-    { question: "Do you offer vehicle delivery in Netley?", answer: "Yes, delivery and collection can be arranged in Netley subject to availability and booking details." },
-    { question: "What vehicles can I hire in Netley?", answer: "We supply vans, cars, minibuses and trucks, depending on the type of hire you need." },
-    { question: "Can I book for a short local hire?", answer: "Yes, many customers hire for a day, a weekend, a week or longer depending on the job." },
-    { question: "Can I take a hire vehicle from Netley further afield?", answer: "That will depend on the vehicle and your travel plans, so it is best to ask when booking." },
-    { question: "What do I need to hire a vehicle in Netley?", answer: "Bring your driving licence, proof of address if requested, and the booking details needed for the hire." },
+    { question: "Can I book a short-term rental in Netley?", answer: "Yes, subject to availability you can arrange short-term hire for a day, weekend or longer depending on the vehicle type you need." },
+    { question: "What are Netley hire vehicles commonly used for?", answer: "Yes, many customers hire for home moves, furniture collections, business deliveries, group travel and temporary replacement transport." },
+    { question: "Do you offer longer hires from Netley?", answer: "That depends on the vehicle category and availability, but flexible rental periods are available for both personal and business use." },
+    { question: "What type of vehicle can I hire in Netley?", answer: "We offer a range of vehicles including vans, cars, minibuses and trucks, so the best option depends on passenger numbers or load size." },
+    { question: "Can you help me choose the right vehicle?", answer: "If you are unsure, we can help match the booking to your journey, load or group size so you do not overbook or end up short on space." },
   ];
   const trustCards = [
-    { title: "Maintained vehicles", description: "Our vehicles are prepared for hire with everyday reliability and usability in mind.", icon: ShieldCheck },
-    { title: "Flexible hire periods", description: "We support one-day bookings, longer rentals and business use with practical arrangements.", icon: Star },
-    { title: "Convenient local service", description: "Delivery and collection options help make hiring easier around Netley and nearby areas.", icon: Users },
+    { title: "Maintained fleet", description: "Vehicles are prepared for practical day-to-day use, from short local hires to longer planned trips.", icon: ShieldCheck },
+    { title: "Personal and business use", description: "Suitable for private customers, trades, events, temporary fleet support and general transport needs.", icon: Star },
+    { title: "Easy to deal with", description: "A straightforward approach to booking, vehicle choice and hire arrangements helps avoid unnecessary delays.", icon: Users },
   ];
   const featureStats = [
-    { value: "Car Hire", label: "Useful van sizes for moving, collecting furniture and local delivery work." },
-    { value: "Van Hire", label: "Straightforward car hire for day trips, business travel and temporary replacement use." },
-    { value: "Minibus Hire", label: "Minibus options for group travel, events and family transport planning." },
-    { value: "Truck Hire", label: "Truck hire for heavier loads, site work and larger transport jobs." },
+    { value: "Car Hire", label: "Vans sized for moving jobs, deliveries and bulky collections." },
+    { value: "Van Hire", label: "Cars for local journeys, airport runs and everyday driving." },
+    { value: "Minibus Hire", label: "Minibuses for family outings, events and group transport." },
+    { value: "Truck Hire", label: "Trucks for heavier loads and commercial transport needs." },
   ];
   const vehicleCards = [
     { src: "/images/smallvan1.jpg", alt: "Small van hire vehicle", title: "Small Vans" },
@@ -52,9 +60,9 @@ export default function LocationPage() {
     { src: "/images/7.5tonnecurtainsidehire.jpg", alt: "7.5 tonne curtainside truck hire vehicle", title: "Truck Hire" },
   ];
   const benefits = [
-    { icon: BadgePoundSterling, title: "More choice, less compromise", description: "Hiring is simpler when you can choose from multiple vehicle types in one place.", detail: "That is useful for comparing a car, van, minibus or truck depending on the trip, load or number of passengers." },
-    { icon: Clock3, title: "Rental terms that adapt", description: "Flexible hire periods help with one-off tasks as well as longer-running personal or business needs.", detail: "Ideal for moves, stock transport, temporary demand or extended travel plans." },
-    { icon: CheckCircle2, title: "Convenient from the outset", description: "Free delivery and collection adds convenience for customers based in and around Hythe.", detail: "A useful option when you want the hire fitted around your day instead of the other way round." },
+    { icon: BadgePoundSterling, title: "A better fit for the task", description: "Choose from vehicles suited to local errands, removals, business use, group travel and heavier transport work.", detail: "That means you can book what fits the job rather than trying to make the wrong vehicle work." },
+    { icon: Clock3, title: "Flexible booking options", description: "Flexible hire periods help if your plans are short notice, project-based or likely to run longer than expected.", detail: "Useful for everything from a single collection to ongoing support during busy periods." },
+    { icon: CheckCircle2, title: "Convenient and dependable", description: "A practical, service-led approach helps keep things straightforward from enquiry through to return.", detail: "Maintained vehicles and helpful arrangements can save time when you already have plenty to organise." },
   ];
 
   return (
@@ -104,7 +112,7 @@ export default function LocationPage() {
             <div className="max-w-3xl">
               <div className="flex flex-col gap-6">
                 <h1 className="text-5xl font-bold tracking-tight">{"Vehicle Hire in Netley"}</h1>
-                <p className="text-xl text-white">{"Flexible self-drive van, car, minibus and truck hire for Netley, with practical support, maintained vehicles and convenient booking options."}</p>
+                <p className="text-xl text-white">{"Flexible self-drive hire in Netley for vans, cars, minibuses and trucks, with practical booking support for home, work and everyday transport needs."}</p>
                 <Button size="lg" className="w-fit bg-[#00B395] text-white hover:bg-[#00997f]" asChild>
                   <a href={phoneHref}>Book Now</a>
                 </Button>
@@ -127,10 +135,10 @@ export default function LocationPage() {
               <div className="max-w-2xl">
                 <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#00B395]/25 bg-white px-3 py-1 text-sm font-medium text-[#00B395]">
                   <PhoneCall className="h-4 w-4" />
-                  {"Flexible local vehicle hire"}
+                  {"Quick bookings for Totton"}
                 </div>
-                <h2 className="text-2xl font-bold tracking-tight text-slate-950 md:text-3xl">{"Simple vehicle hire for Netley journeys"}</h2>
-                <p className="mt-3 text-base leading-7 text-slate-600">{"Booking in Netley is kept straightforward. Tell us what you need the vehicle for, how long you need it, and whether delivery or collection would help, and we can guide you to a practical option without unnecessary fuss."}</p>
+                <h2 className="text-2xl font-bold tracking-tight text-slate-950 md:text-3xl">{"Simple vehicle hire for Netley"}</h2>
+                <p className="mt-3 text-base leading-7 text-slate-600">{"Hiring in Netley is straightforward with practical booking support, clear rental options and access to vehicles for domestic, leisure and business use."}</p>
                 <div className="mt-5 flex flex-wrap gap-3 text-sm text-slate-600">
                   <div className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-sm">
                     <PhoneCall className="h-4 w-4 text-[#00B395]" />
@@ -153,8 +161,8 @@ export default function LocationPage() {
       <section id="trust" className="px-6 py-16">
         <div className="mx-auto max-w-6xl">
           <div className="mb-12 text-center">
-            <h2 className="mb-4 text-4xl font-bold">{"A dependable choice for Netley vehicle hire"}</h2>
-            <p className="text-lg text-muted-foreground">{"People booking in Netley usually want a vehicle that turns up ready for the job and a hire process that does not waste time. That is where our practical approach helps."}</p>
+            <h2 className="mb-4 text-4xl font-bold">{"A dependable choice for Netley rentals"}</h2>
+            <p className="text-lg text-muted-foreground">{"Netley customers choose us for practical vehicles, flexible options and a service that stays focused on getting the job done properly."}</p>
           </div>
           <div className="grid gap-8 md:grid-cols-3 md:auto-rows-fr">
             {trustCards.map((item) => (
@@ -173,9 +181,9 @@ export default function LocationPage() {
       <section className="bg-white px-6 py-20 text-slate-950">
         <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div>
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Vehicle range"}</p>
-            <h2 className="max-w-2xl text-4xl font-bold tracking-tight md:text-5xl">{"Hire vehicles for personal and business use in Netley"}</h2>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">{"From everyday cars to larger commercial vehicles, we help Netley customers hire the right vehicle for practical local and longer-distance use."}</p>
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Fleet options"}</p>
+            <h2 className="max-w-2xl text-4xl font-bold tracking-tight md:text-5xl">{"Vehicle hire options for Netley journeys"}</h2>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">{"A broad vehicle range gives Netley customers practical options for personal hire, business use and one-off transport jobs."}</p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Button size="lg" className="bg-[#00B395] text-white hover:bg-[#00997f]" asChild>
                 <a href={phoneHref}>No Hassle Booking {phoneDisplay}</a>
@@ -195,13 +203,13 @@ export default function LocationPage() {
 
       <section className="bg-white px-6 py-20">
         <div className="mx-auto max-w-5xl text-center">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Why people book with us"}</p>
-          <h2 className="mx-auto max-w-3xl text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Practical hire options around Netley"}</h2>
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Why hire with us"}</p>
+          <h2 className="mx-auto max-w-3xl text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Practical vehicle rental in and around Netley"}</h2>
           <div className="mx-auto mt-8 max-w-3xl space-y-6 text-lg leading-8 text-slate-600">
-            <p>{"Netley customers often need a vehicle that fits around real plans rather than fixed assumptions. That might mean a van for a house move, a car for a trip while your own vehicle is off the road, or a minibus for a family or group outing."}</p>
-            <p>{"Southern Van Hire offers a broad range of self-drive vehicles, including vans, cars, minibuses and trucks, so you can book something suitable for the job instead of trying to make do with the wrong size or type."}</p>
-            <p>{"Our approach is practical and dependable. Vehicles are prepared for hire, rental periods can be arranged to suit short or longer needs, and we support both private customers and businesses needing temporary transport."}</p>
-            <p>{"For Netley and the surrounding area, that means a hire service that works well for coastal trips, Southampton-bound driving, local collections, trade work and planned moves across Hampshire and beyond."}</p>
+            <p>{"Netley is well placed for local moves, station transfers, seafront trips and day-to-day transport needs, so having the right vehicle makes a real difference. We offer vans, cars, minibuses and trucks to suit one-off jobs and planned bookings alike."}</p>
+            <p>{"For customers in Netley, we keep the process clear and practical. Whether you need a short-term van for a move, a car for everyday travel, or a larger vehicle for business use, we focus on straightforward booking and dependable service."}</p>
+            <p>{"Netley is well placed for local journeys along Southampton Water as well as longer runs across Hampshire, so flexible hire matters. We offer vehicle options suited to one-off jobs, planned transport, and longer periods where a fixed company vehicle is not ideal."}</p>
+            <p>{"People hiring in Netley often want convenience as much as vehicle choice. That is why we aim to keep collection, delivery arrangements, paperwork, and handover simple, so you can get on with the trip rather than lose time sorting logistics."}</p>
           </div>
         </div>
       </section>
@@ -210,9 +218,9 @@ export default function LocationPage() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(0,179,149,0.14),_transparent_55%)] pointer-events-none" />
         <div className="mx-auto max-w-6xl">
           <div className="mx-auto mb-14 max-w-3xl text-center">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Booking benefits"}</p>
-            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"What you get with our Hythe hire service"}</h2>
-            <p className="mt-5 text-lg leading-8 text-slate-600">{"Key reasons customers in Hythe choose a practical, flexible vehicle hire service."}</p>
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Why it works"}</p>
+            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Why Netley customers book with us"}</h2>
+            <p className="mt-5 text-lg leading-8 text-slate-600">{"Netley customers often need a hire vehicle for home moves, local transport, seafront-side access and everyday business use. Our service is designed to keep things practical, flexible and easy to arrange."}</p>
           </div>
           <div className="grid gap-8 md:grid-cols-3">
             {benefits.map((item) => (
@@ -255,7 +263,7 @@ export default function LocationPage() {
           <div className="mx-auto max-w-3xl text-center">
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Nearby Locations"}</p>
             <h2 className="text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">{"Other hire areas near Netley"}</h2>
-            <p className="mt-4 text-lg leading-8 text-slate-600">{"If Netley is not the most convenient collection point, we also cover other nearby Hampshire locations that are practical for the same coastal and Southampton-side journeys."}</p>
+            <p className="mt-4 text-lg leading-8 text-slate-600">{"If Netley is not your exact pickup point, we also cover nearby towns and villages around Southampton Water and the eastern side of the city."}</p>
           </div>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             {locationLinks.map((location) => (
@@ -266,16 +274,16 @@ export default function LocationPage() {
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
-              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"A vehicle for different kinds of travel"}</h3>
-              <p className="mt-3 text-base leading-7 text-slate-600">{"Choose from a wide mix of rental vehicles for personal transport, business use, group travel and heavier-duty jobs."}</p>
+              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"Broad vehicle choice"}</h3>
+              <p className="mt-3 text-base leading-7 text-slate-600">{"Choose from a practical mix of rental vehicles for everyday driving, moving jobs, business use and group travel."}</p>
             </div>
             <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
-              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"Hire periods that fit the plan"}</h3>
-              <p className="mt-3 text-base leading-7 text-slate-600">{"Short and longer hire periods can be arranged, helping you book a vehicle around the job instead of rushing everything into one day."}</p>
+              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"Hire terms that work"}</h3>
+              <p className="mt-3 text-base leading-7 text-slate-600">{"Flexible hire periods help whether you need a vehicle for a single day, a busy week or a longer planned booking."}</p>
             </div>
             <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
-              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"Helpful service without the runaround"}</h3>
-              <p className="mt-3 text-base leading-7 text-slate-600">{"Our aim is to keep vehicle hire clear and workable, with straightforward support before collection or delivery."}</p>
+              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"Dependable service"}</h3>
+              <p className="mt-3 text-base leading-7 text-slate-600">{"Well-presented vehicles and clear support make it easier to book with confidence and get on the road with less hassle."}</p>
             </div>
           </div>
         </div>
@@ -285,14 +293,14 @@ export default function LocationPage() {
         <div className="mx-auto max-w-5xl">
           <div className="mx-auto max-w-3xl text-center">
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Local Guide"}</p>
-            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Driving and hire guide for Netley"}</h2>
-            <p className="mt-5 text-lg leading-8 text-slate-600">{"Useful local driving notes for planning vehicle hire in and around Netley."}</p>
+            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Driving and hire tips for Netley"}</h2>
+            <p className="mt-5 text-lg leading-8 text-slate-600">{"Useful local driving notes for planning a hire in and around Netley."}</p>
           </div>
           <div className="mx-auto mt-12 max-w-4xl space-y-6 text-left">
-            <p className="text-base leading-8 text-slate-600">{"Netley is well placed for practical vehicle hire, especially if you need to move between the village, the wider Eastleigh area and the Southampton side of the water. For local driving, it helps to plan around narrower residential roads and busier periods near the waterfront, schools and commuter routes, particularly if you are collecting furniture, carrying tools or travelling in a larger van."}</p>
-            <p className="text-base leading-8 text-slate-600">{"If your journey starts in Netley, many hires are used for home moves, store collections, event transport and business deliveries. A smaller van can be easier for village parking and short local runs, while a larger panel van, minibus or truck is often the better fit if you are loading bulky items or heading further afield for the day."}</p>
-            <p className="text-base leading-8 text-slate-600">{"For longer trips, it is worth sorting fuel and loading before setting off so you are not stopping too early into the journey. There is an Esso within reach of the wider area, which can be useful if you want to top up before returning your vehicle or after joining the main routes out of Netley. Giving yourself a little extra time can make drop off much simpler."}</p>
-            <p className="text-base leading-8 text-slate-600">{"Netley also works well as a starting point for straightforward self-drive hire when you want flexibility without relying on multiple trips in a car. Whether you are transporting household goods, collecting materials, supporting a local job or arranging travel for a small group, choosing the right vehicle size for the roads and parking available around Netley can make the whole journey more efficient."}</p>
+            <p className="text-base leading-8 text-slate-600">{"Netley is well placed for straightforward vehicle collection and onward travel, especially if you are heading along the local waterfront side of Eastleigh or connecting into the wider Southampton area. For short hires, it works well as a starting point for home moves, furniture pickups and general transport jobs where you want to avoid unnecessary detours."}</p>
+            <p className="text-base leading-8 text-slate-600">{"If you are hiring a larger van, minibus or truck, it helps to plan your loading point and parking space before setting off. Netley’s village setting can mean tighter residential roads and more limited stopping room than larger town centres, so a little route planning can make collections, drop-offs and turning around much easier."}</p>
+            <p className="text-base leading-8 text-slate-600">{"For longer trips, it is sensible to sort fuel early rather than leaving it until the last stretch back. There is an Esso within the wider area, and many drivers prefer to top up before returning the vehicle so the end of the hire stays simple and predictable."}</p>
+            <p className="text-base leading-8 text-slate-600">{"Netley is a practical base if you need a vehicle for day hires, weekend use or business support across Hampshire. Whether you are moving equipment, collecting stock or arranging transport for a group, choosing the right size vehicle and a clear route from the start usually makes the whole journey smoother."}</p>
           </div>
         </div>
       </section>
@@ -300,9 +308,9 @@ export default function LocationPage() {
       <section className="bg-white px-6 py-20">
         <div className="mx-auto max-w-4xl">
           <div className="mb-12 text-center">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Netley hire help"}</p>
-            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Questions we hear from Netley customers"}</h2>
-            <p className="mt-4 text-lg leading-8 text-slate-600">{"Common questions about arranging vehicle hire in and around Netley."}</p>
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Netley questions"}</p>
+            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Netley hire FAQs"}</h2>
+            <p className="mt-4 text-lg leading-8 text-slate-600">{"A few useful answers for customers arranging vehicle hire in Netley and the surrounding area."}</p>
           </div>
           <div className="rounded-3xl border border-slate-200 bg-slate-50 px-6 shadow-sm">
             {faqs.map((item, index) => (
@@ -320,8 +328,8 @@ export default function LocationPage() {
 
       <section className="bg-[#00B395] px-6 py-16 text-center text-white">
         <div className="mx-auto max-w-2xl">
-          <h2 className="mb-4 text-4xl font-bold">{"Book a Netley hire vehicle with less hassle"}</h2>
-          <p className="mb-8 text-lg text-white/85">{"If you need a hire vehicle in Netley, we can help you choose a sensible option for the journey, load and rental period."}</p>
+          <h2 className="mb-4 text-4xl font-bold">{"Need vehicle hire in Netley?"}</h2>
+          <p className="mb-8 text-lg text-white/85">{"If you need a rental vehicle in Netley, we can help you choose a practical option for personal or business use and arrange hire around your schedule."}</p>
           <Button size="lg" className="bg-white text-[#00B395] hover:bg-gray-100" asChild>
             <a href={phoneHref}>Book Now</a>
           </Button>

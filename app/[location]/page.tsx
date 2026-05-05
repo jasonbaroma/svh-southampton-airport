@@ -7,7 +7,6 @@ import LocationPage3 from "@/app/location3/page";
 import LocationPage4 from "@/app/location4/page";
 import LocationPage5 from "@/app/location5/page";
 import LocationPage6 from "@/app/location6/page";
-import { siteUrl } from "@/lib/company";
 import { locationSlugEntries } from "@/lib/location-links";
 
 const locationPages = [
@@ -34,7 +33,7 @@ export async function generateMetadata({
 
   return {
     alternates: {
-      canonical: `${siteUrl}${location}`,
+      canonical: `/${location}`,
     },
   };
 }
@@ -54,3 +53,4 @@ export default async function LocationSlugPage({
   const PageComponent = locationPages[match.index - 1];
   return <PageComponent />;
 }
+

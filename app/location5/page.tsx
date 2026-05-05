@@ -159,10 +159,10 @@ export default function LocationPage() {
           <div className="grid gap-8 md:grid-cols-3 md:auto-rows-fr">
             {trustCards.map((item) => (
               <Card key={item.title} className="border border-slate-100 bg-white p-8 shadow-[0_20px_45px_-25px_rgba(15,23,42,0.22)]">
-                <div className="mb-6 inline-flex rounded-2xl bg-[#00B395]/10 p-4 text-[#00B395]">
-                  <item.icon className="h-7 w-7" />
+                <div className="mb-6 flex w-full items-center gap-3 rounded-2xl bg-[#00B395]/10 px-4 py-4 text-left text-[#00B395]">
+                  <item.icon className="h-7 w-7 shrink-0" />
+                  <h3 className="text-xl font-bold leading-tight">{item.title}</h3>
                 </div>
-                <h3 className="mb-3 text-2xl font-bold text-[#00B395]">{item.title}</h3>
                 <p className="mb-5 text-base leading-7 text-slate-600">{item.description}</p>
               </Card>
             ))}
@@ -290,7 +290,7 @@ export default function LocationPage() {
           </div>
           <div className="mx-auto mt-12 max-w-4xl space-y-6 text-left">
             <p className="text-base leading-8 text-slate-600">{"Netley is well placed for straightforward vehicle collection and onward travel, especially if you are heading along the local waterfront side of Eastleigh or connecting into the wider Southampton area. For short hires, it works well as a starting point for home moves, furniture pickups and general transport jobs where you want to avoid unnecessary detours."}</p>
-            <p className="text-base leading-8 text-slate-600">{"If you are hiring a larger van, minibus or truck, it helps to plan your loading point and parking space before setting off. Netley’s village setting can mean tighter residential roads and more limited stopping room than larger town centres, so a little route planning can make collections, drop-offs and turning around much easier."}</p>
+            <p className="text-base leading-8 text-slate-600">{"If you are hiring a larger van, minibus or truck, it helps to plan your loading point and parking space before setting off. Netleyâ€™s village setting can mean tighter residential roads and more limited stopping room than larger town centres, so a little route planning can make collections, drop-offs and turning around much easier."}</p>
             <p className="text-base leading-8 text-slate-600">{"For longer trips, it is sensible to sort fuel early rather than leaving it until the last stretch back. There is an Esso within the wider area, and many drivers prefer to top up before returning the vehicle so the end of the hire stays simple and predictable."}</p>
             <p className="text-base leading-8 text-slate-600">{"Netley is a practical base if you need a vehicle for day hires, weekend use or business support across Hampshire. Whether you are moving equipment, collecting stock or arranging transport for a group, choosing the right size vehicle and a clear route from the start usually makes the whole journey smoother."}</p>
           </div>
